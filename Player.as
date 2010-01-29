@@ -8,7 +8,7 @@
 	public class Player extends Actor
 	{		
 		[Embed(source = 'data/player.png')] private var ImgPlayer:Class;
-		
+
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
 		
