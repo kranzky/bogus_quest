@@ -4,9 +4,11 @@
 	
 	public class Room1 extends BaseRoom
 	{
+		[Embed(source = 'data/grass.png')] private var ImgGrass:Class;
+
 		public function Room1() 
 		{
-			super( "Room1" );
+			super( "Room1", ImgGrass );
 		}
 		
 		override public function init():void
