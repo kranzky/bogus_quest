@@ -2,6 +2,8 @@
 {
 	public class Bonus1 extends BaseRoom
 	{
+		internal var _remaining:int = 0;
+
 		public function Bonus1() 
 		{
 			super( "Bonus1", 357 );
@@ -29,10 +31,20 @@
 					{
 						continue;
 					}
+					_remaining += 1;
 					add( gem = new Gem() );
 					gem.x = i * 32 + 48;
 					gem.y = j * 32 + 48;
 				}
+			}
+		}
+		
+		override public function collect():void
+		{
+			_remaining -= 1;
+			if ( _remaining == 0 )
+			{
+				Main.door1.locked = false;
 			}
 		}
 	}

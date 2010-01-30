@@ -35,6 +35,8 @@
 			if ( collideWith( Main.player, x, y ) )
 			{
 				FP.world.remove( this );
+				var room:BaseRoom = FP.world as BaseRoom;
+				room.collect();
 			}
 		}
 	}

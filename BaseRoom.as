@@ -53,6 +53,10 @@
 			pr.seed = seed;
 		}	
 		
+		public function collect():void
+		{
+		}
+		
 		override public function init():void
 		{
 			trace( "Init: " + _name );

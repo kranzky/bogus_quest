@@ -8,21 +8,28 @@
 	{
 		internal var _name:String = "Portal";
 		internal var _open:Boolean = true;
+		internal var _bitmapOpen:Class;
+		internal var _bitmapClosed:Class;
 		
 		public var room1:Class;
 		public var wall:int;
 		public var room2:Class;
+		public var locked:Boolean;
 		
-		public function Portal( name:String, bitmap:Class ) 
+		public function Portal( name:String, bitmap_open:Class, bitmap_closed:Class = null ) 
 		{
 			_name = name;
 			trace( "Construct: " + name );
 									
-			sprite = FP.getSprite( bitmap, 32, 32, false, false, 16, 16 );
+			_bitmapOpen = bitmap_open;
+			_bitmapClosed = bitmap_closed;
+			
+			sprite = FP.getSprite( _bitmapOpen, 32, 32, false, false, 16, 16 );
 			setCollisionMask( sprite.getImage() );
 			setCollisionType( "portal" );
 			
 			active = true;
+			locked = false;
 		}
 		
 		public function addToWorld():void
@@ -34,20 +41,20 @@
 				{
 					switch ( wall )
 					{
-						case 1: x = 144; y = sprite.height * 0.5; break;
-						case 2: x = 320 - sprite.width * 0.5; y = 112; break;
-						case 3: x = 176; y = 224 - sprite.height * 0.5; break;
-						case 4: x = sprite.width * 0.5; y = 112; break;
+						case 1: x = 144; y = sprite.height * 0.5; angle = 0;  break;
+						case 2: x = 320 - sprite.width * 0.5; y = 112; angle = 270; break;
+						case 3: x = 176; y = 224 - sprite.height * 0.5; angle = 180; break;
+						case 4: x = sprite.width * 0.5; y = 112; angle = 90; break;
 					}
 				}
 				else
 				{
 					switch ( wall )
 					{
-						case 3: x = 144; y = sprite.height * 0.5; break;
-						case 4: x = 320 - sprite.width * 0.5; y = 112; break;
-						case 1: x = 176; y = 224 - sprite.height * 0.5; break;
-						case 2: x = sprite.width * 0.5; y = 112; break;
+						case 3: x = 144; y = sprite.height * 0.5; angle = 0;  break;
+						case 4: x = 320 - sprite.width * 0.5; y = 112; angle = 270; break;
+						case 1: x = 176; y = 224 - sprite.height * 0.5; angle = 180; break;
+						case 2: x = sprite.width * 0.5; y = 112; angle = 90;  break;
 					}
 				}
 				FP.world.add( this );
@@ -56,7 +63,8 @@
 			
 		override public function update():void
 		{
-			if ( Main.player.teleporting || Main.player.falling )
+			sprite = FP.getSprite( locked ? _bitmapClosed : _bitmapOpen, 32, 32, false, false, 16, 16 );
+			if ( Main.player.teleporting || Main.player.falling || locked )
 			{
 				return;
 			}

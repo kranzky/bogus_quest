@@ -15,11 +15,14 @@
 		public static var debug:TextPlus = new DebugText();
 		public static var credits:CreditText = new CreditText();
 		public static var state:int = 0;
+		public static var door1:Portal;
+		public static var door2:Portal;
+		public static var door3:Portal;
 		
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Bonus1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -55,6 +58,8 @@
 			portal.room1 = Room3;
 			portal.wall = 1;
 			portal.room2 = Room4;
+			portal.locked = true;
+			door1 = portal;
 
 			portal = _addPortal( Door, 1 );
 			portal.room1 = Room3;
@@ -83,6 +88,8 @@
 			portal.room1 = Room6;
 			portal.wall = 2;
 			portal.room2 = Room7;
+			portal.locked = true;
+			door2 = portal;
 			
 			// Room 7
 			portal = _addPortal( Door );
@@ -107,6 +114,8 @@
 			portal.room1 = Bonus3;
 			portal.wall = 4;
 			portal.room2 = Boss;
+			portal.locked = true;
+			door3 = portal;
 
 			credits.initial = 300;
 			credits.delay = 100;
