@@ -9,8 +9,6 @@
 
 	// TODO: rooms are created and destroyed by the engine when the player enters / leaves. To maintain state, each room
 	//       should have a state entity that is owned by the engine, which it can read/right. Well, maybe.
-	
-	// TODO: Figure out some kind of tiling system. Or at least allow each room to have a bg image
 		
 	public class BaseRoom extends World
 	{
@@ -44,9 +42,10 @@
 			tileMap.add( _bitmap, rect, 0, 0 );
 			tileMap.depth = 999; // render before everything else
 			add( tileMap );
-
+			
 			add( Main.player );
 			add( Main.debug );
+			add( Main.credits );
 			
 			Main.addPortals();			
 		}

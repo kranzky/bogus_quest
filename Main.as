@@ -9,13 +9,11 @@
 	
 	public class Main extends Engine
 	{
-		// music by Little Scale
-		[Embed(source = 'data/music1.mp3')] private const SndMusic:Class;
-		
 		private static var _portals:Array = [];
 		
 		public static var player:Actor = new Player();
 		public static var debug:TextPlus = new DebugText();
+		public static var credits:CreditText = new CreditText();
 		
 		// TODO: RocketHands splash screen with text (GGJ specific stuff)
 		
@@ -29,9 +27,7 @@
 		
 		public function Main()
 		{
-			super( 320, 240, 60, 2, Room1, false, false );
-			
-			FP.musicPlay( SndMusic );
+			super( 320, 240, 60, 2, Rocket, false, true );
 			
 			var portal:Portal;
 			portal = _addPortal( Door );
@@ -57,6 +53,18 @@
 			portal.y2 = 80;
 			portal.room1 = Room3;
 			portal.room2 = Room3;
+			
+			credits.initial = 300;
+			credits.delay = 100;
+			credits.y = 210;
+			credits.text.push( "Hacked by Lloyd Kranzky" );
+			credits.text.push( "Pixel Placement by Pazu" );
+			credits.text.push( "Extra Coding by Beetlefeet" );
+			credits.text.push( "Moneybags by Dodgy" );
+			credits.text.push( "Insanity by Maxxor" );
+			credits.text.push( "Inspiration by Dadams" );
+			credits.text.push( "Special Thanks to Ellen" );
+			credits.text.push( "Special Thanks to Simon" );
 		}
 		
 		public static function addPortals():void

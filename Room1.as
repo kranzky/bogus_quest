@@ -5,6 +5,8 @@
 	public class Room1 extends BaseRoom
 	{
 		[Embed(source = 'data/grass.png')] private var ImgGrass:Class;
+		
+		internal var _count:int = 0;
 
 		public function Room1() 
 		{
@@ -21,15 +23,19 @@
 			add( e = new Wall() ); e.x = 150; e.y = 160;
 			
 			wrapLeft = true;
-			wrapRight = true;
+			wrapRight = true;			
 		}
 		
 		override public function update():void
 		{
-			if ( Main.player.y < 0 )
+			_count += 1;
+		}
+		
+		override public function render():void
+		{
+			if ( _count < 60 )
 			{
-				FP.goto = new Room2();
-				Main.player.y = 240;
+				FP.screen.drawClear( 0xFF000000, (60 - _count ) / 60 );
 			}
 		}
 	}

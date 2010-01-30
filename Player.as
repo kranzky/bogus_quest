@@ -8,7 +8,10 @@
 	
 	public class Player extends Actor
 	{		
-		[Embed(source = 'data/player.png')] private var ImgPlayer:Class;
+		[Embed(source = 'data/player_left.png')] private var ImgPlayerLeft:Class;
+		[Embed(source = 'data/player_up.png')] private var ImgPlayerUp:Class;
+		[Embed(source = 'data/player_down.png')] private var ImgPlayerDown:Class;
+		[Embed(source = 'data/player_tumble.png')] private var ImgPlayerTumble:Class;
 
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
@@ -16,7 +19,7 @@
 		
 		public function Player() 
 		{
-			sprite = FP.getSprite( ImgPlayer, 32, 32, true, false, 16, 16 );
+			sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 			setCollisionMask( sprite.getImage() );
 
 			x = 160;
@@ -88,19 +91,32 @@
 			// player input
 			if (Input.check("right"))
 			{
+				sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 				_dx += _accel;
 				flipX = true;
 			}
 			if (Input.check("left"))
 			{
+				sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 				_dx -= _accel;
 				flipX = false;
 			}
-			if (Input.check("up")) _dy -= _accel;
-			if (Input.check("down")) _dy += _accel;
+			if (Input.check("up"))
+			{
+				sprite = FP.getSprite( ImgPlayerUp, 32, 32, false, false, 16, 16 );
+				_dy -= _accel;
+				flipX = false;
+			}
+			if (Input.check("down"))
+			{
+				sprite = FP.getSprite( ImgPlayerDown, 32, 32, false, false, 16, 16 );
+				_dy += _accel;
+				flipX = false;
+			}
 			// animate based on speed
-			delay = 10 - Math.abs( _dx );
-			if ( delay < 0 || Math.abs( _dx ) < 1.0 )
+			var speed:Number = Math.abs( _dx ) + Math.abs( _dy );
+			delay = 10 - speed;
+			if ( delay < 0 || speed < 1.0 )
 			{
 				delay = 0;
 				image = 1;
