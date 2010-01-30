@@ -1,5 +1,6 @@
 ﻿package  
 {
+	import flash.filters.DropShadowFilter;
 	import punk.Actor;
 	import punk.core.Entity;
 	import punk.core.SpriteMap;
@@ -64,7 +65,8 @@
 			
 			add( Main.player );
 			add( Main.debug );
-			add( Main.credits );						
+			add( Main.credits );
+			add( new Shadow() );
 			Main.player.teleporting = false;
 						
 			var tileMap:TileMap = new TileMap( 320, 224 );

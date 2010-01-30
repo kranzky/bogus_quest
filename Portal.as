@@ -15,6 +15,7 @@
 		public var wall:int;
 		public var room2:Class;
 		public var locked:Boolean;
+		public var fake:Boolean;
 		
 		public function Portal( name:String, bitmap_open:Class, bitmap_closed:Class = null ) 
 		{
@@ -30,6 +31,7 @@
 			
 			active = true;
 			locked = false;
+			fake = false;
 		}
 		
 		public function addToWorld():void
@@ -63,7 +65,7 @@
 			
 		override public function update():void
 		{
-			sprite = FP.getSprite( locked ? _bitmapClosed : _bitmapOpen, 32, 32, false, false, 16, 16 );
+			sprite = FP.getSprite( ( locked || fake )? _bitmapClosed : _bitmapOpen, 32, 32, false, false, 16, 16 );
 			if ( Main.player.teleporting || Main.player.falling )
 			{
 				return;

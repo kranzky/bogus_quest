@@ -24,6 +24,24 @@
 			bomb.y = 80;
 			bomb.bomb = true;
 			
+			var obstacle:Obstacle;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 80;
+			obstacle.y = 140;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 60;
+			obstacle.y = 120;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 130;
+			obstacle.y = 40;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 200;
+			obstacle.y = 120;
+			
 			if ( Main.player.hasKey || Main.player.usedKey1 )
 			{
 				return;

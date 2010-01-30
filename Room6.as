@@ -20,6 +20,28 @@
 			add( sign = new Sign( 2, true ) );
 			sign.x = 270;
 			sign.y = 70;
+			
+			var obstacle:Obstacle;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 120;
+			obstacle.y = 40;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 50;
+			obstacle.y = 175;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 160;
+			obstacle.y = 45;
+
+			add( obstacle = new Obstacle() );
+			obstacle.x = 130;
+			obstacle.y = 70;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 200;
+			obstacle.y = 40;
 		}
 	}
 }

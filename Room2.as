@@ -21,6 +21,24 @@
 			add( sign = new Sign( 2, true ) );
 			sign.x = 90;
 			sign.y = 112;
+
+			var obstacle:Obstacle;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 60;
+			obstacle.y = 80;
+
+			add( obstacle = new Obstacle() );
+			obstacle.x = 60;
+			obstacle.y = 180;
+
+			add( obstacle = new Obstacle() );
+			obstacle.x = 140;
+			obstacle.y = 160;
+
+			add( obstacle = new Obstacle() );
+			obstacle.x = 220;
+			obstacle.y = 90;
 		}
 	}
 }

@@ -15,6 +15,16 @@
 			{
 				Main.state = 9;
 			}
+			
+			var obstacle:Obstacle;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 80;
+			obstacle.y = 140;
+
+			add( obstacle = new Obstacle() );
+			obstacle.x = 190;
+			obstacle.y = 90;	
 		}
 	}
 }
