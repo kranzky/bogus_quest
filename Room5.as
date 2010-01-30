@@ -10,6 +10,12 @@
 		override public function init():void
 		{
 			super.init();
+			
+			var sign:Sign;
+
+			add( sign = new Sign( 1, true ) );
+			sign.x = 115;
+			sign.y = 50;
 		}
 	}
 }

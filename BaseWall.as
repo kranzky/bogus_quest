@@ -11,7 +11,7 @@
 		{
 			trace( "Construct: " + name );
 			
-			sprite = FP.getSprite( bitmap, width, height, false, false, width * 0.5, height * 0.5 );
+			sprite = FP.getSprite( bitmap, width, height, true, true, width * 0.5, height * 0.5 );
 			setCollisionMask( sprite.getImage() );
 			setCollisionType( "wall" );
 		}

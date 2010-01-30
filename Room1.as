@@ -16,12 +16,14 @@
 			super.init();
 			
 			var ship:Ship;
+			
 			add( ship = new Ship() );
 			ship.x = 230;
 			ship.y = 50;
 			
 			var sign:Sign;
-			add( sign = new Sign() );
+			
+			add( sign = new Sign( 1 ) );
 			sign.x = 100;
 			sign.y = 112;
 			

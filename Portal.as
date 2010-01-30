@@ -82,10 +82,10 @@
 				Main.player.teleporting = true;
 				switch ( wall )
 				{
-					case 3: Main.player.x = 144; Main.player.y = sprite.height * 0.5; break;
-					case 4: Main.player.x = 320 - sprite.width * 0.5; Main.player.y = 112; break;
-					case 1: Main.player.x = 176; Main.player.y = 224 - sprite.height * 0.5; break;
-					case 2: Main.player.x = sprite.width * 0.5; Main.player.y = 112; break;
+					case 3: Main.player.x = 144; Main.player.y = sprite.height; break;
+					case 4: Main.player.x = 320 - sprite.width; Main.player.y = 112; break;
+					case 1: Main.player.x = 176; Main.player.y = 224 - sprite.height; break;
+					case 2: Main.player.x = sprite.width; Main.player.y = 112; break;
 				}
 				FP.goto = new room2();
 			}
@@ -94,10 +94,10 @@
 				Main.player.teleporting = true;
 				switch ( wall )
 				{
-					case 1: Main.player.x = 144; Main.player.y = sprite.height * 0.5; break;
-					case 2: Main.player.x = 320 - sprite.width * 0.5; Main.player.y = 112; break;
-					case 3: Main.player.x = 176; Main.player.y = 224 - sprite.height * 0.5; break;
-					case 4: Main.player.x = sprite.width * 0.5; Main.player.y = 112; break;
+					case 1: Main.player.x = 144; Main.player.y = sprite.height; break;
+					case 2: Main.player.x = 320 - sprite.width; Main.player.y = 112; break;
+					case 3: Main.player.x = 176; Main.player.y = 224 - sprite.height; break;
+					case 4: Main.player.x = sprite.width; Main.player.y = 112; break;
 				}
 				FP.goto = new room1();
 			}

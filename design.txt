@@ -92,7 +92,7 @@ With key: "Quick! Set me free! I'll be so *grateful*!"
 
 Unlock cage: death
 
-Arrow with chip points down
+Arrow with chip points up
 
 Exit up to Room 6
 
