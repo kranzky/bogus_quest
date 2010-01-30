@@ -8,9 +8,7 @@
 	//       should have a state entity that is owned by the engine, which it can read/right. Well, maybe.
 	
 	// TODO: Figure out some kind of tiling system. Or at least allow each room to have a bg image
-	
-	// TODO: On init(), retrieve and display all of my portals
-	
+		
 	public class BaseRoom extends World
 	{
 		internal var _name:String = "BaseRoom";
@@ -34,8 +32,10 @@
 		override public function init():void
 		{
 			trace( "Init: " + _name );
+			
 			add( Main.player );
 			add( Main.debug );
+			Main.addPortals();
 		}
 		
 		override public function update():void {

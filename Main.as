@@ -12,6 +12,8 @@
 		// music by Little Scale
 		[Embed(source = 'data/music1.mp3')] private const SndMusic:Class;
 		
+		private static var _portals:Array = [];
+		
 		public static var player:Actor = new Player();
 		public static var debug:TextPlus = new DebugText();
 		
@@ -30,6 +32,61 @@
 			super( 320, 240, 60, 2, Room1, false, false );
 			
 			FP.musicPlay( SndMusic );
+			
+			var portal:Portal;
+			portal = _addPortal( Door );
+			portal.x1 = 30;
+			portal.y1 = 30;
+			portal.x2 = 280;
+			portal.x2 = 200;
+			portal.room1 = Room1;
+			portal.room2 = Room2;
+			
+			portal = _addPortal( Door );
+			portal.x1 = 130;
+			portal.y1 = 130;
+			portal.x2 = 130;
+			portal.y2 = 220;
+			portal.room1 = Room3;
+			portal.room2 = Room2;
+			
+			portal = _addPortal( Door );
+			portal.x1 = 80;
+			portal.y1 = 200;
+			portal.x2 = 200;
+			portal.y2 = 80;
+			portal.room1 = Room3;
+			portal.room2 = Room3;
+		}
+		
+		public static function addPortals():void
+		{
+			var addToRoom:Function = function( portal:Portal, index:Number, arr:Array ):void
+			{
+				if ( FP.world is portal.room1 || FP.world is portal.room2 )
+				{
+					trace( "Adding Portal" );
+					if ( FP.world is portal.room1 )
+					{
+						portal.x = portal.x1;
+						portal.y = portal.y1;
+					}
+					else
+					{
+						portal.x = portal.x2;
+						portal.y = portal.y2;
+					}
+					FP.world.add( portal );
+				}
+			};
+			_portals.forEach( addToRoom );
+		}
+		
+		private static function _addPortal( portalClass:Class ):Portal
+		{
+			var portal:Portal = new portalClass();
+			_portals.push( portal );
+			return portal;
 		}
 	}
 }

@@ -42,14 +42,31 @@
 			}
 			trace( "Teleporting..." );
 			_open = false;
-			trace( FP.world );
-			trace( FP.world is Room1 );
-			if ( FP.world )
+			if ( FP.world is room1 && FP.world is room2 )
 			{
+				if ( x == x1 && y == y1 )
+				{
+					x = x2;
+					y = y2;
+				}
+				else if ( x == x2 && y == y2 )
+				{
+					x = x1;
+					y = y1;
+				}
+				Main.player.x = x;
+				Main.player.y = y;
+			}
+			else if ( FP.world is room1 )
+			{
+				Main.player.x = x2;
+				Main.player.y = y2;
 				FP.goto = new room2();
 			}
-			else
+			else if ( FP.world is room2 )
 			{
+				Main.player.x = x1;
+				Main.player.y = y1;
 				FP.goto = new room1();
 			}
 		}

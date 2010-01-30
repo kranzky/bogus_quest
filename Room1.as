@@ -13,13 +13,6 @@
 		{
 			super.init();
 			
-			var portal:Portal;
-			add( portal = new Door() );
-			portal.x = 30;
-			portal.y = 30;
-			portal.room1 = Room1;
-			portal.room2 = Room2;
-			
 			var e:Entity;
 			add( e = new Wall() ); e.x = 50; e.y = 100;
 			add( e = new Wall() ); e.x = 200; e.y = 120;
