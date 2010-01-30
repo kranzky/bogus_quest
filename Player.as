@@ -37,10 +37,10 @@
 		public function reset():void
 		{
 			x = 140;
-			y = 112;
+			y = -250;
 			delay = 0;
 			tumbling = false;
-			falling = false;
+			falling = true;
 			_dx = 0;
 			_dy = 0;
 		}
@@ -49,48 +49,52 @@
 			var room:BaseRoom = FP.world as BaseRoom;
 			
 			// bounce of walls
-			if ( collide( "wall", x + _dx, y ) )
+			if ( ! falling && collide( "wall", x + _dx, y ) )
 			{
 				_dx *= -1;
 			}
-			if ( collide( "wall", x, y + _dy ) )
+			if ( ! falling && collide( "wall", x, y + _dy ) )
+			{
+				_dy *= -1;
+			}
+			if ( falling && y > 114 )
 			{
 				_dy *= -1;
 			}
 			// collide or pass through screen bounds
-			if ( ! room.wrapLeft && x + _dx < sprite.imageW * 0.5 )
+			if ( ! falling && ! room.wrapLeft && x + _dx < sprite.imageW * 0.5 )
 			{
 				x = sprite.imageW * 0.5;
 				_dx *= -1;
 			}
-			else if ( room.wrapLeft && x + _dx < -sprite.imageW * 0.5 )
+			else if ( ! falling && room.wrapLeft && x + _dx < -sprite.imageW * 0.5 )
 			{
 				x = 320 + sprite.imageW * 0.5;
 			}
-			if ( ! room.wrapRight && x + _dx > 320 - sprite.imageW * 0.5 )
+			if ( ! falling && ! room.wrapRight && x + _dx > 320 - sprite.imageW * 0.5 )
 			{
 				x = 320 - sprite.imageW * 0.5;
 				_dx *= -1;
 			}
-			else if ( room.wrapRight && x + _dx > 320 + sprite.imageW * 0.5 )
+			else if ( ! falling && room.wrapRight && x + _dx > 320 + sprite.imageW * 0.5 )
 			{
 				x = - sprite.imageW * 0.5;
 			}
-			if ( ! room.wrapTop && y + _dy < sprite.imageH * 0.5 )
+			if ( ! falling && ! room.wrapTop && y + _dy < sprite.imageH * 0.5 )
 			{
 				y = sprite.imageH * 0.5;
 				_dy *= -1;
 			}
-			else if ( room.wrapTop && y + _dy < - sprite.imageH * 0.5 )
+			else if ( ! falling && room.wrapTop && y + _dy < - sprite.imageH * 0.5 )
 			{
 				y = 224 + sprite.imageW * 0.5;
 			}
-			if ( ! room.wrapBottom && y + _dy > 224 - sprite.imageH * 0.5 )
+			if ( ! falling && ! room.wrapBottom && y + _dy > 224 - sprite.imageH * 0.5 )
 			{
 				y = 224 - sprite.imageH * 0.5;
 				_dy *= -1;
 			}
-			else if ( room.wrapBottom && y + _dy > 224 + sprite.imageH * 0.5 )
+			else if ( ! falling && room.wrapBottom && y + _dy > 224 + sprite.imageH * 0.5 )
 			{
 				y = - sprite.imageW * 0.5;
 			}
@@ -106,9 +110,25 @@
 				flipY = _dy > 0;
 				return;
 			}
+			if ( falling )
+			{
+				sprite = FP.getSprite( ImgPlayerTumble, 32, 32, true, true, 16, 16 );
+				_dy += 0.6;
+				_dx *= 0.93;
+				_dy *= 0.93;
+				falling = Math.abs( _dy ) > 0.1;
+				if ( ! falling )
+				{
+					sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
+					flipY = false;
+				}
+			}
 			// slow down over time
-			_dx *= 0.8;
-			_dy *= 0.8;
+			if ( ! falling )
+			{
+				_dx *= 0.8;
+				_dy *= 0.8;
+			}
 			// player input
 			if (Input.check("right"))
 			{

@@ -56,7 +56,7 @@
 			
 		override public function update():void
 		{
-			if ( Main.player.teleporting )
+			if ( Main.player.teleporting || Main.player.falling )
 			{
 				return;
 			}
