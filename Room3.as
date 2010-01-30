@@ -5,6 +5,10 @@
 		public function Room3() 
 		{
 			super( "Room3", 43823 );
+			
+			bushLeft = true;
+			bushRight = true;
+			bushBottom = true;
 		}
 		
 		override public function init():void

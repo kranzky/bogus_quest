@@ -19,25 +19,37 @@
 		[Embed(source = 'data/pebble1.png')] private var ImgPebble1:Class;
 		[Embed(source = 'data/pebble2.png')] private var ImgPebble2:Class;
 		[Embed(source = 'data/status.png')] private var ImgStatus:Class;
+		[Embed(source = 'data/tile.png')] private var ImgTile:Class;
 		
 		internal var _name:String = "BaseRoom";
-		internal var _seed:int = 0;
 		
 		public var wrapLeft:Boolean;
 		public var wrapRight:Boolean;
 		public var wrapTop:Boolean;
 		public var wrapBottom:Boolean;
+		public var bushLeft:Boolean;
+		public var bushRight:Boolean;
+		public var bushTop:Boolean;
+		public var bushBottom:Boolean;
+		public var pr:PM_PRNG;
 		
 		public function BaseRoom( name:String, seed:int ) 
 		{
 			_name = name;
-			_seed = seed;
 			trace( "Construct: " + _name );
 			
 			wrapLeft = false;
 			wrapRight = false;
 			wrapTop = false;
 			wrapBottom = false;
+			
+			bushLeft = false;
+			bushRight = false;
+			bushTop = false;
+			bushBottom = false;
+
+			pr = new PM_PRNG();
+			pr.seed = seed;
 		}	
 		
 		override public function init():void
@@ -54,9 +66,7 @@
 				Main.addPortals();			
 			}
 
-			var pr:PM_PRNG = new PM_PRNG();
-			pr.seed = _seed;
-			var bush:Bush; 
+			var bush:BaseWall; 
 			for ( var i:int = 0; i < 10; i++)
 			{
 				for ( var j:int = 0; j < 7; j++ )
@@ -75,12 +85,25 @@
 						}
 						if ( ! skip )
 						{
-							bush = new Bush();
+							if ( j == 0 && bushTop || j == 6 && bushBottom ||
+							     i == 0 && bushLeft || i == 9 && bushRight )
+							{
+								bush = new Bush();
+							}
+							else
+							{
+								bush = new Wall();
+							}
 							bush.depth = 999;
 							bush.x = 16 + i * 32;
 							bush.y = 16 + j * 32;
 							add( bush );
 						}
+					}
+					if ( ! bushRight && ! bushLeft && ! bushTop && ! bushBottom )
+					{
+						tileMap.add( ImgTile, rect, i * 32, j * 32 );
+						continue;
 					}
 					switch ( pr.nextIntRange( 0, 20 ) )
 					{

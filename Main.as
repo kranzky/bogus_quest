@@ -18,34 +18,34 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Room3, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
 			// Room 1
-			portal = _addPortal( Door );
+			portal = _addPortal( Door, 1 );
 			portal.room1 = Room1;
 			portal.wall = 1;
 			portal.room2 = Death;
 			
-			portal = _addPortal( Door );
+			portal = _addPortal( Door, 1 );
 			portal.room1 = Room1;
 			portal.wall = 3;
 			portal.room2 = Room2;
 
 			// Room 2
-			portal = _addPortal( Door );
+			portal = _addPortal( Door, 1 );
 			portal.room1 = Room2;
 			portal.wall = 4;
 			portal.room2 = Death;
 			
-			portal = _addPortal( Door );
+			portal = _addPortal( Door, 1 );
 			portal.room1 = Room2;
 			portal.wall = 2;
 			portal.room2 = Room3;
 			
 			// Room 3
-			portal = _addPortal( Door );
+			portal = _addPortal( Door, 1 );
 			portal.room1 = Room3;
 			portal.wall = 3;
 			portal.room2 = Death;
@@ -55,7 +55,7 @@
 			portal.wall = 1;
 			portal.room2 = Room4;
 
-			portal = _addPortal( Door );
+			portal = _addPortal( Door, 1 );
 			portal.room1 = Room3;
 			portal.wall = 2;
 			portal.room2 = Bonus1;
@@ -137,9 +137,9 @@
 			_portals.forEach( addToRoom );
 		}
 		
-		private static function _addPortal( portalClass:Class ):Portal
+		private static function _addPortal( portalClass:Class, type:int = 0 ):Portal
 		{
-			var portal:Portal = new portalClass();
+			var portal:Portal = new portalClass( type );
 			_portals.push( portal );
 			return portal;
 		}

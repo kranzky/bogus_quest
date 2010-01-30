@@ -9,6 +9,11 @@
 		public function Room1() 
 		{
 			super( "Room1", 73902 );
+
+			bushTop = true;
+			bushLeft = true;
+			bushRight = true;
+			bushBottom = true;
 		}
 		
 		override public function init():void
@@ -27,6 +32,16 @@
 			sign.x = 100;
 			sign.y = 112;
 			
+			var obstacle:Obstacle;
+			
+			add( obstacle = new Obstacle() );
+			obstacle.x = 60;
+			obstacle.y = 80;
+						
+			add( obstacle = new Obstacle() );
+			obstacle.x = 240;
+			obstacle.y = 150;
+						
 			//Main.player.falling = true;
 			//Main.player.y = -10; 
 		}
