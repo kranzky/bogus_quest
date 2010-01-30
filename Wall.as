@@ -6,7 +6,7 @@
 		
 		public function Wall()
 		{
-			super( ImgWall );
+			super( "Wall", ImgWall );
 		}	
 	}
 }

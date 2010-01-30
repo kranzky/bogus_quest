@@ -4,6 +4,7 @@
 	import punk.Actor;
 	import punk.util.Input;
 	import punk.util.Key;
+	import punk.core.World;
 	
 	public class Player extends Actor
 	{		
@@ -33,11 +34,11 @@
 			var room:BaseRoom = FP.world as BaseRoom;
 			
 			// bounce of walls
-			if ( collide("wall", x + _dx, y ) )
+			if ( collide( "wall", x + _dx, y ) )
 			{
 				_dx *= -1;
 			}
-			if ( collide("wall", x, y + _dy ) )
+			if ( collide( "wall", x, y + _dy ) )
 			{
 				_dy *= -1;
 			}

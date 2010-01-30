@@ -13,9 +13,6 @@
 		{
 			super.init();
 			
-			var e:Entity;
-			add( e = new Door() ); e.x = 120; e.y = 70;
-			
 			wrapTop = true;
 			wrapBottom = true;
 		}
