@@ -12,9 +12,9 @@
 		override public function init():void
 		{
 			super.init();
+			
 			var e:Entity;
-			add( e = new Coin() ); e.x = 70; e.y = 130;
-			add( e = new Coin() ); e.x = 120; e.y = 70;
+			add( e = new Door() ); e.x = 120; e.y = 70;
 		}
 		
 		override public function update():void {

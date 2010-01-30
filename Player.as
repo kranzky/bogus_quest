@@ -11,30 +11,56 @@
 
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
+		internal var _accel:Number = 0.5;
 		
 		public function Player() 
 		{
-			sprite = FP.getSprite(ImgPlayer, 32, 32, true, false, 16, 16);
+			sprite = FP.getSprite( ImgPlayer, 32, 32, true, false, 16, 16 );
+			setCollisionMask( sprite.getImage() );
+
 			x = 160;
 			y = 120;
 			delay = 0;
-			setCollisionRect(32, 32);
 			
-			Input.define("right", Key.RIGHT);
-			Input.define("left", Key.LEFT);
-			Input.define("up", Key.UP);
-			Input.define("down", Key.DOWN);
+			Input.define( "right", Key.RIGHT, Key.D );
+			Input.define( "left", Key.LEFT, Key.A );
+			Input.define( "up", Key.UP, Key.W );
+			Input.define( "down", Key.DOWN, Key.S );
 		}
 		
 		override public function update():void
 		{
-			if ( collide("coin", x + _dx, y ) )
+			if ( collide("wall", x + _dx, y ) )
 			{
 				_dx *= -1;
 				x += _dx;
 				return;
 			}
-			if ( collide("coin", x, y + _dy ) )
+			if ( collide("wall", x, y + _dy ) )
+			{
+				_dy *= -1;
+				y += _dy;
+				return;
+			}
+			if ( x + _dx < sprite.imageW * 0.5 )
+			{
+				_dx *= -1;
+				x += _dx;
+				return;
+			}
+			if ( x + _dx > 320 - sprite.imageW * 0.5 )
+			{
+				_dx *= -1;
+				x += _dx;
+				return;
+			}
+			if ( y + _dy < sprite.imageH * 0.5 )
+			{
+				_dy *= -1;
+				y += _dy;
+				return;
+			}
+			if ( y + _dy > 240 - sprite.imageH * 0.5 )
 			{
 				_dy *= -1;
 				y += _dy;
@@ -44,20 +70,20 @@
 			y += _dy;
 			if (Input.check("right"))
 			{
-				_dx += 1.0;
+				_dx += _accel;
 				flipX = true;
 			}
 			if (Input.check("left"))
 			{
-				_dx -= 1.0;
+				_dx -= _accel;
 				flipX = false;
 			}
-			if (Input.check("up")) _dy -= 1.0;
-			if (Input.check("down")) _dy += 1.0;
+			if (Input.check("up")) _dy -= _accel;
+			if (Input.check("down")) _dy += _accel;
 			_dx *= 0.8;
 			_dy *= 0.8;
 			loop = Math.abs( _dx ) > 0.5;
-			delay = int( Math.abs( _dx ) * 2 );
+			delay = Math.abs( _dx ) * 4;
 		}
 	}
 }
