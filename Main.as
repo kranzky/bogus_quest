@@ -10,7 +10,7 @@
 	public class Main extends Engine
 	{
 		// music by Little Scale
-		[Embed(source = 'data/music2.mp3')] private const SndMusic:Class;
+		[Embed(source = 'data/music1.mp3')] private const SndMusic:Class;
 		
 		public static var player:Actor = new Player();
 		public static var debug:TextPlus = new DebugText();
