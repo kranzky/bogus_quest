@@ -14,11 +14,12 @@
 		public static var player:Player = new Player();
 		public static var debug:TextPlus = new DebugText();
 		public static var credits:CreditText = new CreditText();
+		public static var state:int = 0;
 		
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Room3, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			

@@ -72,6 +72,7 @@
 			}
 			trace( "Teleporting..." );
 			_open = false;
+			Main.player.teleport( room1, room2 );
 			if ( FP.world is room1 && FP.world is room2 )
 			{
 				trace( "Bad, Bad Portal" );

@@ -34,6 +34,17 @@
 			reset();
 		}
 		
+		public function teleport( room1:Class, room2:Class ):void
+		{
+			if ( room1 == Room3 && room2 == Death )
+			{
+				if ( Main.state < 2 )
+				{
+					Main.state = 2;
+				}
+			}
+		}
+		
 		public function reset():void
 		{
 			x = 140;
