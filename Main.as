@@ -11,7 +11,7 @@
 	{
 		private static var _portals:Array = [];
 		
-		public static var player:Actor = new Player();
+		public static var player:Player = new Player();
 		public static var debug:TextPlus = new DebugText();
 		public static var credits:CreditText = new CreditText();
 		
@@ -27,33 +27,96 @@
 		
 		public function Main()
 		{
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
-			
+			// TODO: change to Rocket and true for ship
+			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+
 			var portal:Portal;
+			
+			// Room 1
 			portal = _addPortal( Door );
-			portal.x1 = 30;
-			portal.y1 = 30;
-			portal.x2 = 280;
-			portal.x2 = 200;
 			portal.room1 = Room1;
-			portal.room2 = Room2;
+			portal.wall = 1;
+			portal.room2 = Death;
 			
 			portal = _addPortal( Door );
-			portal.x1 = 130;
-			portal.y1 = 130;
-			portal.x2 = 130;
-			portal.y2 = 220;
-			portal.room1 = Room3;
+			portal.room1 = Room1;
+			portal.wall = 3;
 			portal.room2 = Room2;
+
+			// Room 2
+			portal = _addPortal( Door );
+			portal.room1 = Room2;
+			portal.wall = 4;
+			portal.room2 = Death;
 			
 			portal = _addPortal( Door );
-			portal.x1 = 80;
-			portal.y1 = 200;
-			portal.x2 = 200;
-			portal.y2 = 80;
-			portal.room1 = Room3;
+			portal.room1 = Room2;
+			portal.wall = 2;
 			portal.room2 = Room3;
 			
+			// Room 3
+			portal = _addPortal( Door );
+			portal.room1 = Room3;
+			portal.wall = 3;
+			portal.room2 = Death;
+			
+			portal = _addPortal( Door );
+			portal.room1 = Room3;
+			portal.wall = 1;
+			portal.room2 = Room4;
+
+			portal = _addPortal( Door );
+			portal.room1 = Room3;
+			portal.wall = 2;
+			portal.room2 = Bonus1;
+
+			// Room 4
+			portal = _addPortal( Door );
+			portal.room1 = Room4;
+			portal.wall = 2;
+			portal.room2 = Room5;
+			
+			// Room 5
+			portal = _addPortal( Door );
+			portal.room1 = Room5;
+			portal.wall = 1;
+			portal.room2 = Room6;
+			
+			// Room 6
+			portal = _addPortal( Door );
+			portal.room1 = Room6;
+			portal.wall = 4;
+			portal.room2 = Bonus2;
+
+			portal = _addPortal( Door );
+			portal.room1 = Room6;
+			portal.wall = 2;
+			portal.room2 = Room7;
+			
+			// Room 7
+			portal = _addPortal( Door );
+			portal.room1 = Room7;
+			portal.wall = 3;
+			portal.room2 = Room8;
+			
+			// Room 8
+			portal = _addPortal( Door );
+			portal.room1 = Room8;
+			portal.wall = 3;
+			portal.room2 = Room9;
+
+			// Room 9
+			portal = _addPortal( Door );
+			portal.room1 = Room9;
+			portal.wall = 3;
+			portal.room2 = Bonus3;
+
+			// Bonus 3
+			portal = _addPortal( Door );
+			portal.room1 = Bonus3;
+			portal.wall = 4;
+			portal.room2 = Boss;
+
 			credits.initial = 300;
 			credits.delay = 100;
 			credits.y = 210;
@@ -76,21 +139,7 @@
 		{
 			var addToRoom:Function = function( portal:Portal, index:Number, arr:Array ):void
 			{
-				if ( FP.world is portal.room1 || FP.world is portal.room2 )
-				{
-					trace( "Adding Portal" );
-					if ( FP.world is portal.room1 )
-					{
-						portal.x = portal.x1;
-						portal.y = portal.y1;
-					}
-					else
-					{
-						portal.x = portal.x2;
-						portal.y = portal.y2;
-					}
-					FP.world.add( portal );
-				}
+				portal.addToWorld();
 			};
 			_portals.forEach( addToRoom );
 		}

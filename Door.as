@@ -7,6 +7,8 @@
 		public function Door() 
 		{
 			super( "Door", ImgDoor );
+			scaleX = 0.5;
+			scaleY = 0.5;
 		}
 	}
 }

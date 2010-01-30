@@ -4,26 +4,34 @@
 	
 	public class Room1 extends BaseRoom
 	{
-		[Embed(source = 'data/grass.png')] private var ImgGrass:Class;
+		[Embed(source = 'data/room1.png')] private var ImgFloor:Class;
 		
 		internal var _count:int = 0;
 
 		public function Room1() 
 		{
-			super( "Room1", ImgGrass );
+			super( "Room1", ImgFloor );
 		}
 		
 		override public function init():void
 		{
 			super.init();
 			
-			var e:Entity;
-			add( e = new Wall() ); e.x = 50; e.y = 100;
-			add( e = new Wall() ); e.x = 200; e.y = 120;
-			add( e = new Wall() ); e.x = 150; e.y = 160;
+			var ship:Ship;
+			add( ship = new Ship() );
+			ship.x = 270;
+			ship.y = 160;
+			
+			var sign:Sign;
+			add( sign = new Sign( true ) );
+			sign.x = 100;
+			sign.y = 100;
 			
 			wrapLeft = true;
-			wrapRight = true;			
+			wrapRight = true;
+			
+			//Main.player.falling = true;
+			//Main.player.y = -10; 
 		}
 		
 		override public function update():void

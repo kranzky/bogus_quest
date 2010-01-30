@@ -1,12 +1,12 @@
 ﻿package  
 {
 	import Math;
-	import punk.Actor;
+	import punk.Acrobat;
 	import punk.util.Input;
 	import punk.util.Key;
 	import punk.core.World;
 	
-	public class Player extends Actor
+	public class Player extends Acrobat
 	{		
 		[Embed(source = 'data/player_left.png')] private var ImgPlayerLeft:Class;
 		[Embed(source = 'data/player_up.png')] private var ImgPlayerUp:Class;
@@ -16,6 +16,8 @@
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
 		internal var _accel:Number = 0.5;
+		
+		public var teleporting:Boolean = false;
 		
 		public function Player() 
 		{

@@ -47,7 +47,12 @@
 			add( Main.debug );
 			add( Main.credits );
 			
-			Main.addPortals();			
+			if ( _name != "Death" )
+			{
+				Main.addPortals();			
+			}
+			
+			Main.player.teleporting = false;
 		}
 	}
 }
