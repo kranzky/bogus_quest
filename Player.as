@@ -25,7 +25,7 @@
 			setCollisionMask( sprite.getImage() );
 
 			x = 160;
-			y = 120;
+			y = 112;
 			delay = 0;
 			
 			Input.define( "right", Key.RIGHT, Key.D );
@@ -73,14 +73,14 @@
 			}
 			else if ( room.wrapTop && y + _dy < - sprite.imageH * 0.5 )
 			{
-				y = 240 + sprite.imageW * 0.5;
+				y = 224 + sprite.imageW * 0.5;
 			}
-			if ( ! room.wrapBottom && y + _dy > 240 - sprite.imageH * 0.5 )
+			if ( ! room.wrapBottom && y + _dy > 224 - sprite.imageH * 0.5 )
 			{
-				y = 240 - sprite.imageH * 0.5;
+				y = 224 - sprite.imageH * 0.5;
 				_dy *= -1;
 			}
-			else if ( room.wrapBottom && y + _dy > 240 + sprite.imageH * 0.5 )
+			else if ( room.wrapBottom && y + _dy > 224 + sprite.imageH * 0.5 )
 			{
 				y = - sprite.imageW * 0.5;
 			}

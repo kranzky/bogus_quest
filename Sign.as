@@ -7,7 +7,7 @@
 		
 		public function Sign( chipped:Boolean = false )
 		{
-			super( "Sign", ( chipped ) ? ImgSignChipped : ImgSign, 64, 48 );
+			super( "Sign", ( chipped ) ? ImgSignChipped : ImgSign, 32, 32 );
 		}
 	}
 }

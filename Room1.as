@@ -3,14 +3,12 @@
 	import punk.core.Entity;
 	
 	public class Room1 extends BaseRoom
-	{
-		[Embed(source = 'data/room1.png')] private var ImgFloor:Class;
-		
+	{		
 		internal var _count:int = 0;
 
 		public function Room1() 
 		{
-			super( "Room1", ImgFloor );
+			super( "Room1" );
 		}
 		
 		override public function init():void
@@ -20,15 +18,12 @@
 			var ship:Ship;
 			add( ship = new Ship() );
 			ship.x = 270;
-			ship.y = 160;
+			ship.y = 80;
 			
 			var sign:Sign;
-			add( sign = new Sign( true ) );
+			add( sign = new Sign() );
 			sign.x = 100;
-			sign.y = 100;
-			
-			wrapLeft = true;
-			wrapRight = true;
+			sign.y = 112;
 			
 			//Main.player.falling = true;
 			//Main.player.y = -10; 

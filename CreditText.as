@@ -21,6 +21,10 @@
 		}
 		override public function update():void
 		{
+			if ( _index >= text.length )
+			{
+				return;
+			}
 			if ( initial > 0 )
 			{
 				initial -= 1;

@@ -2,11 +2,9 @@
 {
 	public class Death extends BaseRoom
 	{
-		[Embed(source = 'data/death.png')] private var ImgFloor:Class;
-
 		public function Death() 
 		{
-			super( "Death", ImgFloor );
+			super( "Death" );
 		}
 		
 		override public function init():void

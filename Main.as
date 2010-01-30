@@ -15,20 +15,10 @@
 		public static var debug:TextPlus = new DebugText();
 		public static var credits:CreditText = new CreditText();
 		
-		// TODO: RocketHands splash screen with text (GGJ specific stuff)
-		
-		// TODO: Fade in to first room
-		
-		// TODO: Overlay game title on first room
-		
-		// TODO: Overlay text on game with credits
-		
-		// TODO: Collection of portals. BaseRoom calls getPortals on instantiation.
-		
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -119,20 +109,25 @@
 
 			credits.initial = 300;
 			credits.delay = 100;
-			credits.y = 210;
+			credits.y = 226;
 			credits.text.push( "RocketHands Presents" );
 			credits.text.push( "a Kranzky Brothers Production" );
 			credits.text.push( "Made for Global Game Jam 2010" );
 			credits.text.push( "B O G U S   Q U E S T" );
 			credits.text.push( "Hacked by Lloyd Kranzky" );
-			credits.text.push( "Pixel Placement by Pazu" );
-			credits.text.push( "Extra Coding by Beetlefeet" );
+			credits.text.push( "Tiles by J. M. Silveira Neto" );
+			credits.text.push( "Cap'n Onion by Pazu" );
+			credits.text.push( "Miscallaneous Pixels by Sizzle" );
+			credits.text.push( "Coopetition by Beetlefeet" );
 			credits.text.push( "Moneybags by Dodgy" );
 			credits.text.push( "Insanity by Maxxor" );
 			credits.text.push( "Inspiration by Dadams" );
-			credits.text.push( "Special Thanks to Ellen" );
-			credits.text.push( "Much Obliged to Simon" );
+			credits.text.push( "Thanks to EllenJ and SimonW" );
+			credits.text.push( "For Jack & Eliza" );
+			credits.text.push( "Copyright (c) 2010 RocketHands" );
 			credits.depth = -1; // render on top of everything
+
+	// <div xmlns:cc="http://creativecommons.org/ns#" about="http://silveiraneto.net/2009/04/06/my-free-tileset-version-9/"><a rel="cc:attributionURL" property="cc:attributionName" href="http://silveiraneto.net">J. M. Silveira Neto</a> / <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/br/">CC BY-SA 2.5</a></div>	
 		}
 		
 		public static function addPortals():void

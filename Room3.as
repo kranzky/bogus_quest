@@ -2,11 +2,9 @@
 {
 	public class Room3 extends BaseRoom
 	{
-		[Embed(source = 'data/room3.png')] private var ImgFloor:Class;
-
 		public function Room3() 
 		{
-			super( "Room3", ImgFloor );
+			super( "Room3" );
 		}
 		
 		override public function init():void

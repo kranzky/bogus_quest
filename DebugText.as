@@ -7,9 +7,9 @@
 		public function DebugText() 
 		{
 			active = true;
-			alpha = 0.5;
-			x = 310;
-			y = 230;
+			alpha = 0.2;
+			x = 308;
+			y = 226;
 		}
 		override public function update():void
 		{

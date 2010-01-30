@@ -34,20 +34,20 @@
 				{
 					switch ( wall )
 					{
-						case 1: x = 160; y = sprite.height; break;
-						case 2: x = 320 - sprite.width; y = 120; break;
-						case 3: x = 160; y = 240 - sprite.height; break;
-						case 4: x = sprite.width; y = 120; break;
+						case 1: x = 160; y = sprite.height * 0.5; break;
+						case 2: x = 320 - sprite.width * 0.5; y = 120; break;
+						case 3: x = 160; y = 224 - sprite.height * 0.5; break;
+						case 4: x = sprite.width * 0.5; y = 120; break;
 					}
 				}
 				else
 				{
 					switch ( wall )
 					{
-						case 3: x = 160; y = sprite.height; break;
-						case 4: x = 320 - sprite.width; y = 120; break;
-						case 1: x = 160; y = 240 - sprite.height; break;
-						case 2: x = sprite.width; y = 120; break;
+						case 3: x = 160; y = sprite.height * 0.5; break;
+						case 4: x = 320 - sprite.width * 0.5; y = 120; break;
+						case 1: x = 160; y = 224 - sprite.height * 0.5; break;
+						case 2: x = sprite.width * 0.5; y = 120; break;
 					}
 				}
 				FP.world.add( this );
@@ -82,10 +82,10 @@
 				Main.player.teleporting = true;
 				switch ( wall )
 				{
-					case 3: Main.player.x = 160; Main.player.y = sprite.height; break;
-					case 4: Main.player.x = 320 - sprite.width; Main.player.y = 120; break;
-					case 1: Main.player.x = 160; Main.player.y = 240 - sprite.height; break;
-					case 2: Main.player.x = sprite.width; Main.player.y = 120; break;
+					case 3: Main.player.x = 160; Main.player.y = sprite.height * 0.5; break;
+					case 4: Main.player.x = 320 - sprite.width * 0.5; Main.player.y = 120; break;
+					case 1: Main.player.x = 160; Main.player.y = 224 - sprite.height * 0.5; break;
+					case 2: Main.player.x = sprite.width * 0.5; Main.player.y = 120; break;
 				}
 				FP.goto = new room2();
 			}
@@ -94,10 +94,10 @@
 				Main.player.teleporting = true;
 				switch ( wall )
 				{
-					case 1: Main.player.x = 160; Main.player.y = sprite.height; break;
-					case 2: Main.player.x = 320 - sprite.width; Main.player.y = 120; break;
-					case 3: Main.player.x = 160; Main.player.y = 240 - sprite.height; break;
-					case 4: Main.player.x = sprite.width; Main.player.y = 120; break;
+					case 1: Main.player.x = 160; Main.player.y = sprite.height * 0.5; break;
+					case 2: Main.player.x = 320 - sprite.width * 0.5; Main.player.y = 120; break;
+					case 3: Main.player.x = 160; Main.player.y = 224 - sprite.height * 0.5; break;
+					case 4: Main.player.x = sprite.width * 0.5; Main.player.y = 120; break;
 				}
 				FP.goto = new room1();
 			}
