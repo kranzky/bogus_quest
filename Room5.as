@@ -4,7 +4,7 @@
 	{
 		public function Room5() 
 		{
-			super( "Room5" );
+			super( "Room5", 9213 );
 		}
 		
 		override public function init():void

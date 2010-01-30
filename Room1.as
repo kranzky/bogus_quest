@@ -8,7 +8,7 @@
 
 		public function Room1() 
 		{
-			super( "Room1" );
+			super( "Room1", 73902 );
 		}
 		
 		override public function init():void
@@ -17,8 +17,8 @@
 			
 			var ship:Ship;
 			add( ship = new Ship() );
-			ship.x = 270;
-			ship.y = 80;
+			ship.x = 230;
+			ship.y = 50;
 			
 			var sign:Sign;
 			add( sign = new Sign() );

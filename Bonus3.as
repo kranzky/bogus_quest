@@ -4,7 +4,7 @@
 	{
 		public function Bonus3() 
 		{
-			super( "Bonus3" );
+			super( "Bonus3", 2348 );
 		}
 		
 		override public function init():void

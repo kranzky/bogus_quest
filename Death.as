@@ -4,7 +4,7 @@
 	{
 		public function Death() 
 		{
-			super( "Death" );
+			super( "Death", 32599 );
 		}
 		
 		override public function init():void

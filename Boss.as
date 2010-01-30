@@ -4,7 +4,7 @@
 	{
 		public function Boss() 
 		{
-			super( "Boss" );
+			super( "Boss", 1382 );
 		}
 		
 		override public function init():void

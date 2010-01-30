@@ -4,8 +4,7 @@
 
 	public class Rocket extends World
 	{
-				// music by Little Scale
-		[Embed(source = 'data/music1.mp3')] private const SndMusic:Class;
+		[Embed(source = 'data/music.mp3')] private const SndMusic:Class;
 		[Embed(source = 'data/rocket.png')] private var ImgRocket:Class;
 		[Embed(source = 'data/kranzky.png')] private var ImgKranzky:Class;
 

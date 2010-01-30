@@ -18,7 +18,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -126,8 +126,6 @@
 			credits.text.push( "For Jack & Eliza" );
 			credits.text.push( "Copyright (c) 2010 RocketHands" );
 			credits.depth = -1; // render on top of everything
-
-	// <div xmlns:cc="http://creativecommons.org/ns#" about="http://silveiraneto.net/2009/04/06/my-free-tileset-version-9/"><a rel="cc:attributionURL" property="cc:attributionName" href="http://silveiraneto.net">J. M. Silveira Neto</a> / <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/br/">CC BY-SA 2.5</a></div>	
 		}
 		
 		public static function addPortals():void
