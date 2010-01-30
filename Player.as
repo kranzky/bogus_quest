@@ -98,8 +98,12 @@
 			if (Input.check("up")) _dy -= _accel;
 			if (Input.check("down")) _dy += _accel;
 			// animate based on speed
-			loop = Math.abs( _dx ) > 0.5;
-			delay = Math.abs( _dx ) * 4;
+			delay = 10 - Math.abs( _dx );
+			if ( delay < 0 || Math.abs( _dx ) < 1.0 )
+			{
+				delay = 0;
+				image = 1;
+			}
 		}
 	}
 }

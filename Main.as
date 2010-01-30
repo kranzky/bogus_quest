@@ -17,7 +17,7 @@
 		
 		public function Main()
 		{
-			super(320, 240, 60, 2, Room2, false, false);
+			super(320, 240, 60, 2, Room1, false, false);
 			FP.musicPlay( SndMusic );
 		}
 	}
