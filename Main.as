@@ -19,7 +19,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Bonus1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -117,6 +117,7 @@
 			credits.text.push( "B O G U S   Q U E S T" );
 			credits.text.push( "Hacked by Lloyd Kranzky" );
 			credits.text.push( "Tiles by J. M. Silveira Neto" );
+			credits.text.push( "Pixel Font by Xpaider" );
 			credits.text.push( "Cap'n Onion by Pazu" );
 			credits.text.push( "Miscallaneous Pixels by Sizzle" );
 			credits.text.push( "Coopetition by Beetlefeet" );
