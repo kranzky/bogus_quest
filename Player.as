@@ -18,22 +18,32 @@
 		internal var _accel:Number = 0.5;
 		
 		public var teleporting:Boolean = false;
+		public var tumbling:Boolean = false;
+		public var falling:Boolean = false;
 		
 		public function Player() 
 		{
 			sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 			setCollisionMask( sprite.getImage() );
 
-			x = 160;
-			y = 112;
-			delay = 0;
-			
 			Input.define( "right", Key.RIGHT, Key.D );
 			Input.define( "left", Key.LEFT, Key.A );
 			Input.define( "up", Key.UP, Key.W );
 			Input.define( "down", Key.DOWN, Key.S );
+			
+			reset();
 		}
 		
+		public function reset():void
+		{
+			x = 140;
+			y = 112;
+			delay = 0;
+			tumbling = false;
+			falling = false;
+			_dx = 0;
+			_dy = 0;
+		}
 		override public function update():void
 		{
 			var room:BaseRoom = FP.world as BaseRoom;
@@ -87,6 +97,15 @@
 			// move
 			x += _dx;
 			y += _dy;
+			if ( tumbling )
+			{
+				_dx += Math.random() * 0.4 - Math.random() * 0.4;
+				_dy += Math.random() * 0.4 - Math.random() * 0.4;
+				sprite = FP.getSprite( ImgPlayerTumble, 32, 32, true, true, 16, 16 );
+				flipX = _dx > 0;
+				flipY = _dy > 0;
+				return;
+			}
 			// slow down over time
 			_dx *= 0.8;
 			_dy *= 0.8;

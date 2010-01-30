@@ -20,6 +20,7 @@
 		[Embed(source = 'data/pebble2.png')] private var ImgPebble2:Class;
 		[Embed(source = 'data/status.png')] private var ImgStatus:Class;
 		[Embed(source = 'data/tile.png')] private var ImgTile:Class;
+		[Embed(source = 'data/death.png')] private var ImgDeath:Class;
 		
 		internal var _name:String = "BaseRoom";
 		
@@ -56,15 +57,35 @@
 		{
 			trace( "Init: " + _name );
 			
+			add( Main.player );
+			add( Main.debug );
+			add( Main.credits );						
+			Main.player.teleporting = false;
+						
 			var tileMap:TileMap = new TileMap( 320, 224 );
 			var rect:Rectangle = new Rectangle(0, 0, 32, 32 );
 			rect.width = 32;
-			rect.height = 32;
+			rect.height = 32;			
 			
-			if ( _name != "Death" )
+			if ( _name == "Death" )
 			{
-				Main.addPortals();			
+				rect.width = 320;
+				rect.height = 240;
+				tileMap.add( ImgDeath, rect, 0, 0 );
+				tileMap.depth = 999; // render before everything else
+				add( tileMap );			
+				var tileMap3:TileMap = new TileMap( 320, 240 );
+				rect.width = 320;
+				rect.height = 16;
+				tileMap3.add( ImgStatus, rect, 0, 224 );
+				add( tileMap3 );
+				Main.player.tumbling = true;
+				Main.player.x = 160;
+				Main.player.y = 112;
+				return;
 			}
+
+			Main.addPortals();			
 
 			var bush:BaseWall; 
 			for ( var i:int = 0; i < 10; i++)
@@ -123,13 +144,7 @@
 			rect.width = 320;
 			rect.height = 16;
 			tileMap2.add( ImgStatus, rect, 0, 224 );
-			add( tileMap2 );
-			
-			add( Main.player );
-			add( Main.debug );
-			add( Main.credits );
-						
-			Main.player.teleporting = false;
+			add( tileMap2 );			
 		}
 	}
 }
