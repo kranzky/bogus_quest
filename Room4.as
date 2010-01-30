@@ -15,7 +15,7 @@
 			
 			add( sign = new Sign( 2, true ) );
 			sign.x = 270;
-			sign.y = 80;
+			sign.y = 70;
 			
 			var bomb:Gem;
 			
@@ -23,6 +23,17 @@
 			bomb.x = 80;
 			bomb.y = 80;
 			bomb.bomb = true;
+			
+			if ( Main.player.hasKey || Main.player.usedKey1 )
+			{
+				return;
+			}
+			
+			var key:GoldKey;
+			
+			add( key = new GoldKey() )
+			key.x = 50;
+			key.y = 50;
 		}
 	}
 }

@@ -14,7 +14,7 @@
 			var sign:Sign;
 
 			add( sign = new Sign( 1, true ) );
-			sign.x = 115;
+			sign.x = 110;
 			sign.y = 50;
 		}
 	}

@@ -64,17 +64,29 @@
 		override public function update():void
 		{
 			sprite = FP.getSprite( locked ? _bitmapClosed : _bitmapOpen, 32, 32, false, false, 16, 16 );
-			if ( Main.player.teleporting || Main.player.falling || locked )
+			if ( Main.player.teleporting || Main.player.falling )
 			{
 				return;
 			}
 			// teleport through portals
 			if ( ! collideWith( Main.player, x, y ) )
 			{
-				_open = true;
+				if ( ! locked )
+				{
+					_open = true;
+				}
 				return;
 			}
 			if ( ! _open )
+			{
+				return;
+			}
+			if ( locked && Main.player.hasKey )
+			{
+				Main.player.hasKey = false;
+				locked = false;
+			}
+			if ( locked )
 			{
 				return;
 			}

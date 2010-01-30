@@ -22,7 +22,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Room4, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -118,17 +118,17 @@
 			door3 = portal;
 
 			credits.initial = 300;
-			credits.delay = 100;
+			credits.delay = 180;
 			credits.y = 226;
 			credits.text.push( "RocketHands Presents" );
 			credits.text.push( "a Kranzky Brothers Production" );
 			credits.text.push( "Made for Global Game Jam 2010" );
-			credits.text.push( "B O G U S   Q U E S T" );
-			credits.text.push( "Hacked by Lloyd Kranzky" );
+			credits.text.push( "B O G U S   Q U E S T  (tm)" );
+			credits.text.push( "Hacked Solo by Lloyd Kranzky" );
 			credits.text.push( "Tiles by J. M. Silveira Neto" );
 			credits.text.push( "Pixel Font by Xpaider" );
 			credits.text.push( "Cap'n Onion by Pazu" );
-			credits.text.push( "Miscallaneous Pixels by Sizzle" );
+			credits.text.push( "Pixel Pushing by Sizzle" );
 			credits.text.push( "Coopetition by Beetlefeet" );
 			credits.text.push( "Moneybags by Dodgy" );
 			credits.text.push( "Insanity by Maxxor" );

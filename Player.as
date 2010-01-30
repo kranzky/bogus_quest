@@ -20,6 +20,10 @@
 		public var teleporting:Boolean = false;
 		public var tumbling:Boolean = false;
 		public var falling:Boolean = false;
+		public var hasKey:Boolean = false;
+		public var usedKey1:Boolean = false;
+		public var usedKey2:Boolean = false;
+		public var usedKey3:Boolean = false;
 		
 		public function Player() 
 		{

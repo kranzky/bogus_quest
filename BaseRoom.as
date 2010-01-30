@@ -21,6 +21,7 @@
 		[Embed(source = 'data/status.png')] private var ImgStatus:Class;
 		[Embed(source = 'data/tile.png')] private var ImgTile:Class;
 		[Embed(source = 'data/death.png')] private var ImgDeath:Class;
+		[Embed(source = 'data/key_icon.png')] private var ImgKeyIcon:Class;
 		
 		internal var _name:String = "BaseRoom";
 		
@@ -51,7 +52,7 @@
 
 			pr = new PM_PRNG();
 			pr.seed = seed;
-		}	
+		}
 		
 		public function collect():void
 		{
@@ -149,6 +150,15 @@
 			rect.height = 16;
 			tileMap2.add( ImgStatus, rect, 0, 224 );
 			add( tileMap2 );			
+		}
+		
+		override public function render():void
+		{
+			if ( Main.player.hasKey )
+			{
+				var sprite:SpriteMap = FP.getSprite( ImgKeyIcon, 16, 16, false, false, 8, 8 );
+				drawSprite( sprite, 0, 10, 232 );
+			}
 		}
 	}
 }

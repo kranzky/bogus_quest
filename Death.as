@@ -30,6 +30,7 @@
 		
 		override public function render():void
 		{
+			super.render();
 			var sprite:SpriteMap = FP.getSprite( ImgDeceived, 200, 40, false, false, 100, 20 );
 			drawSprite( sprite, 0, 160, 114 );
 			if ( _count > 150 )

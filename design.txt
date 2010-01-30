@@ -1,6 +1,11 @@
 Bogus Quest
 ===========
 
+BUGS
+----
+
+Set intermediate state to preved out of date dialogue.
+
 Death
 -----
 
@@ -124,6 +129,8 @@ Sound. Door back to room 6 is now locked. So is door back to room 3.
 Two statues guard the other door - down to room 8.
 
 Approach them and they start telling a long puzzle.
+Better - they request an item which has always been near the rocket.
+We make it deadly when they request it.
 
 But you can walk through the door.
 

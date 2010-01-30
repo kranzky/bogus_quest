@@ -18,15 +18,15 @@
 			var sign:Sign;
 			
 			add( sign = new Sign( 1 ) );
-			sign.x = 115;
+			sign.x = 110;
 			sign.y = 50;
 
 			add( sign = new Sign( 2 ) );
 			sign.x = 270;
-			sign.y = 80;
+			sign.y = 70;
 
 			add( sign = new Sign( 3, true ) );
-			sign.x = 150;
+			sign.x = 140;
 			sign.y = 175;
 			
 			var boy:Boy;

@@ -10,6 +10,11 @@
 		override public function init():void
 		{
 			super.init();
+			
+			if ( Main.state < 8 )
+			{
+				Main.state = 9;
+			}
 		}
 	}
 }
