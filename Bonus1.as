@@ -18,6 +18,11 @@
 		{
 			super.init();
 			
+			if ( ! Main.door1.locked )
+			{
+				return;
+			}
+			
 			var gem:Gem;
 			for ( var i:int = 0; i < 8; i++)
 			{
@@ -45,6 +50,10 @@
 			if ( _remaining == 0 )
 			{
 				Main.door1.locked = false;
+				if ( Main.state < 4 )
+				{
+					Main.state = 4;
+				}
 			}
 		}
 	}

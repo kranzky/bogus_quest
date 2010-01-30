@@ -16,6 +16,13 @@
 			add( sign = new Sign( 2, true ) );
 			sign.x = 270;
 			sign.y = 80;
+			
+			var bomb:Gem;
+			
+			add( bomb = new Gem() );
+			bomb.x = 80;
+			bomb.y = 80;
+			bomb.bomb = true;
 		}
 	}
 }

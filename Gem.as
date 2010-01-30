@@ -11,6 +11,10 @@
 		[Embed(source = 'data/gem4.png')] private var ImgGem4:Class;
 		[Embed(source = 'data/gem5.png')] private var ImgGem5:Class;
 		[Embed(source = 'data/gem6.png')] private var ImgGem6:Class;
+		[Embed(source = 'data/bomb.png')] private var ImgBomb:Class;
+		
+		public var bomb:Boolean = false;
+		public var fake:Boolean = false;
 		
 		public function Gem()
 		{
@@ -32,8 +36,20 @@
 		
 		override public function update():void
 		{
+			if ( bomb && ! fake || ! bomb && fake )
+			{
+				sprite = FP.getSprite( ImgBomb, 32, 32, false, false, 16, 16 );
+			}
 			if ( collideWith( Main.player, x, y ) )
 			{
+				if ( bomb )
+				{
+					FP.goto = new Death();
+					if ( FP.world is Room4 && Main.state < 6 )
+					{
+						Main.state = 6;
+					}
+				}
 				FP.world.remove( this );
 				var room:BaseRoom = FP.world as BaseRoom;
 				room.collect();
