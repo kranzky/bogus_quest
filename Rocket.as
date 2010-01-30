@@ -26,6 +26,7 @@
 			if ( _count == 200 )
 			{
 				FP.goto = new Room1();
+				FP.musicVolume = 0.3;
 				FP.musicPlay( SndMusic );
 			}
 			_count += 1;

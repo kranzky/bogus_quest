@@ -8,6 +8,7 @@
 		[Embed(source = 'data/bubble2.png')] private var ImgBubble2:Class;
 		[Embed(source = 'data/bubble3.png')] private var ImgBubble3:Class;
 		[Embed(source = 'data/bubble4.png')] private var ImgBubble4:Class;
+		[Embed(source = 'data/bubble5.png')] private var ImgBubble5:Class;
 		
 		internal var _bitmap:Class;
 
@@ -23,6 +24,7 @@
 					case 1: _bitmap = ImgBubble2; break;
 					case 2: _bitmap = ImgBubble3; break;
 					case 3: _bitmap = ImgBubble4; break;
+					case 4: _bitmap = ImgBubble5; break;
 				}
 			}
 			else

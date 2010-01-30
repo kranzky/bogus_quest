@@ -49,6 +49,10 @@
 					{
 						Main.state = 6;
 					}
+					if ( FP.world is Bonus2 && Main.state < 8 )
+					{
+						Main.state = 8;
+					}
 				}
 				FP.world.remove( this );
 				var room:BaseRoom = FP.world as BaseRoom;
