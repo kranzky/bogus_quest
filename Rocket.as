@@ -24,23 +24,10 @@
 
 		override public function update():void
 		{
-			if ( _count == 550 )
-			{
-				FP.goto = new Room1();
-			}
-			if ( _count == 500 )
-			{
-				FP.musicPlay( SndMusic );
-			}
 			if ( _count == 200 )
 			{
-				var credits:CreditText = new CreditText();
-				credits.delay = 60;
-				credits.y = 110;
-				credits.text.push( "RocketHands Presents" );
-				credits.text.push( "a Kranzky Brothers Production" );
-				credits.text.push( "made for Global Game Jam 2010" );
-				add( credits );
+				FP.goto = new Room1();
+				FP.musicPlay( SndMusic );
 			}
 			_count += 1;
 		}
@@ -61,19 +48,19 @@
 			}
 			if ( _count < 30 )
 			{
-				FP.screen.drawClear( 0xFF000000, (30 - _count ) / 30 );
+				FP.screen.drawClear( 0xFFFFFFFF, (30 - _count ) / 30 );
 			}
 			if ( _count > 60 && _count <= 90 )
 			{
-				FP.screen.drawClear( 0xFF000000, (_count - 60) / 30 );
+				FP.screen.drawClear( 0xFFFFFFFF, (_count - 60) / 30 );
 			}
 			if ( _count > 90 && _count < 120 )
 			{
-				FP.screen.drawClear( 0xFF000000, (120 - _count) / 30 );
+				FP.screen.drawClear( 0xFFFFFFFF, (120 - _count) / 30 );
 			}
 			if ( _count > 150 )
 			{
-				FP.screen.drawClear( 0xFF000000, (_count - 150) / 30 );
+				FP.screen.drawClear( 0xFFFFFFFF, (_count - 150) / 30 );
 			}
 		}
 	}

@@ -27,7 +27,7 @@
 		
 		public function Main()
 		{
-			super( 320, 240, 60, 2, Rocket, false, true );
+			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
 			
 			var portal:Portal;
 			portal = _addPortal( Door );
@@ -57,6 +57,10 @@
 			credits.initial = 300;
 			credits.delay = 100;
 			credits.y = 210;
+			credits.text.push( "RocketHands Presents" );
+			credits.text.push( "a Kranzky Brothers Production" );
+			credits.text.push( "Made for Global Game Jam 2010" );
+			credits.text.push( "B O G U S   Q U E S T" );
 			credits.text.push( "Hacked by Lloyd Kranzky" );
 			credits.text.push( "Pixel Placement by Pazu" );
 			credits.text.push( "Extra Coding by Beetlefeet" );
@@ -64,7 +68,8 @@
 			credits.text.push( "Insanity by Maxxor" );
 			credits.text.push( "Inspiration by Dadams" );
 			credits.text.push( "Special Thanks to Ellen" );
-			credits.text.push( "Special Thanks to Simon" );
+			credits.text.push( "Much Obliged to Simon" );
+			credits.depth = -1; // render on top of everything
 		}
 		
 		public static function addPortals():void

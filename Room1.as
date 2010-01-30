@@ -35,7 +35,7 @@
 		{
 			if ( _count < 60 )
 			{
-				FP.screen.drawClear( 0xFF000000, (60 - _count ) / 60 );
+				FP.screen.drawClear( 0xFFFFFFFF, (60 - _count ) / 60 );
 			}
 		}
 	}
