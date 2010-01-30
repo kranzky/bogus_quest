@@ -18,6 +18,9 @@
 			add( e = new Wall() ); e.x = 50; e.y = 100;
 			add( e = new Wall() ); e.x = 200; e.y = 120;
 			add( e = new Wall() ); e.x = 150; e.y = 160;
+			
+			wrapLeft = true;
+			wrapRight = true;
 		}
 		
 		override public function update():void {

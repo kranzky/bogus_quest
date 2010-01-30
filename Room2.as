@@ -15,14 +15,9 @@
 			
 			var e:Entity;
 			add( e = new Door() ); e.x = 120; e.y = 70;
-		}
-		
-		override public function update():void {
-			if ( Main.player.y > 240 )
-			{
-				FP.goto = new Room1();
-				Main.player.y = 0;
-			}
+			
+			wrapTop = true;
+			wrapBottom = true;
 		}
 	}
 }
