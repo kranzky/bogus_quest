@@ -41,9 +41,6 @@
 			add( obstacle = new Obstacle() );
 			obstacle.x = 240;
 			obstacle.y = 150;
-						
-			//Main.player.falling = true;
-			//Main.player.y = -10; 
 		}
 		
 		override public function update():void

@@ -19,7 +19,7 @@
 			var sign:Sign;
 			
 			add( sign = new Sign( 2, true ) );
-			sign.x = 80;
+			sign.x = 90;
 			sign.y = 112;
 		}
 	}

@@ -9,8 +9,6 @@
 
 		public function BaseWall( name:String, bitmap:Class, width:int = 32, height:int = 32 ) 
 		{
-			trace( "Construct: " + name );
-			
 			sprite = FP.getSprite( bitmap, width, height, true, true, width * 0.5, height * 0.5 );
 			setCollisionMask( sprite.getImage() );
 			setCollisionType( "wall" );

@@ -28,6 +28,11 @@
 			add( sign = new Sign( 3, true ) );
 			sign.x = 150;
 			sign.y = 175;
+			
+			var boy:Boy;
+			add( boy = new Boy() );
+			boy.x = 190;
+			boy.y = 95;
 		}
 	}
 }

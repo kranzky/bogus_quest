@@ -37,10 +37,15 @@
 		public function reset():void
 		{
 			x = 140;
-			y = -250;
+			y = 112;
 			delay = 0;
+			falling = false;
+			if ( tumbling )
+			{
+				y = -250;
+				falling = true;
+			}
 			tumbling = false;
-			falling = true;
 			_dx = 0;
 			_dy = 0;
 		}
@@ -130,25 +135,25 @@
 				_dy *= 0.8;
 			}
 			// player input
-			if (Input.check("right"))
+			if ( ! falling && Input.check("right"))
 			{
 				sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 				_dx += _accel;
 				flipX = true;
 			}
-			if (Input.check("left"))
+			if ( ! falling && Input.check("left"))
 			{
 				sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 				_dx -= _accel;
 				flipX = false;
 			}
-			if (Input.check("up"))
+			if ( ! falling && Input.check("up"))
 			{
 				sprite = FP.getSprite( ImgPlayerUp, 32, 32, false, false, 16, 16 );
 				_dy -= _accel;
 				flipX = false;
 			}
-			if (Input.check("down"))
+			if ( ! falling && Input.check("down"))
 			{
 				sprite = FP.getSprite( ImgPlayerDown, 32, 32, false, false, 16, 16 );
 				_dy += _accel;
