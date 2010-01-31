@@ -164,14 +164,12 @@
 		
 		override public function update():void
 		{
-			if ( Main.state < 13 )
+			if ( Main.state != 13 )
 			{
 				return;
 			}
 			if ( _timer == 0 )
 			{
-				trace( _x );
-				trace( _y );
 				_x = Main.player.x;
 				_y = Main.player.y;
 			}
