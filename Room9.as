@@ -6,7 +6,7 @@
 		{
 			super( "Room9", 23345 );
 		}
-		
+	
 		override public function init():void
 		{
 			super.init();
@@ -33,7 +33,6 @@
 			gem.x = 160 + 30 + 8;
 			gem.y = 112;
 			gem.bomb = true;
-
 			
 			if ( Main.player.hasKey || Main.player.usedKey2 )
 			{

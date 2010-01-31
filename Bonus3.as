@@ -1,12 +1,27 @@
 ﻿package  
 {
+	import punk.core.Entity;
+	
 	public class Bonus3 extends BaseRoom
 	{
+		internal var _remaining:int = 0;
+
 		public function Bonus3() 
 		{
 			super( "Bonus3", 2348 );
 		}
-		
+
+		override public function activateGems():void
+		{
+			_remaining = countClass( Gem );
+			var activate:Function = function( gem:Gem ):void
+			{
+				gem.bomb = false;
+				gem.fake = true;
+			};
+			withClass( Gem, activate );
+		}
+
 		override public function init():void
 		{
 			super.init();
@@ -29,6 +44,15 @@
 					gem.y = j * 32 + 48;
 					gem.bomb = true;
 				}
+			}
+		}
+		
+		override public function collect():void
+		{
+			_remaining -= 1;
+			if ( _remaining == 0 )
+			{
+				Main.door3.locked = false;
 			}
 		}
 	}

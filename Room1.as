@@ -23,7 +23,7 @@
 			var ship:Ship;
 			
 			add( ship = new Ship() );
-			ship.x = 230;
+			ship.x = 240;
 			ship.y = 50;
 			
 			var sign:Sign;

@@ -7,8 +7,8 @@
 		public function Ship()
 		{
 			super( "Ship", ImgShip );
-			scaleX = 4;
-			scaleY = 4;
+			scaleX = 3;
+			scaleY = 3;
 		}	
 	}
 }

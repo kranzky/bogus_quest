@@ -83,7 +83,15 @@
 			if ( locked && Main.player.hasKey )
 			{
 				Main.player.hasKey = false;
-				locked = false;
+				var room:BaseRoom = FP.world as BaseRoom;
+				if ( room is Bonus3 )
+				{
+					room.activateGems();
+				}
+				else
+				{
+					locked = false;
+				}
 			}
 			if ( locked )
 			{
@@ -105,7 +113,7 @@
 					case 3: Main.player.x = 144; Main.player.y = sprite.height + 16; break;
 					case 4: Main.player.x = 320 - sprite.width - 16; Main.player.y = 112; break;
 					case 1: Main.player.x = 176; Main.player.y = 208 - sprite.height; break;
-					case 2: Main.player.x = sprite.width + 18; Main.player.y = 112; break;
+					case 2: Main.player.x = sprite.width + 20; Main.player.y = 112; break;
 				}
 				trace( "Room2" );
 				FP.goto = new room2();

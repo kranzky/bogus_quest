@@ -59,6 +59,10 @@
 		{
 		}
 		
+		public function activateGems():void
+		{
+		}
+		
 		override public function init():void
 		{
 			trace( "Init: " + _name );
