@@ -14,7 +14,7 @@
 			var sign:Sign;
 
 			add( sign = new Sign( 1, true ) );
-			sign.x = 110;
+			sign.x = 90;
 			sign.y = 50;
 			
 			var obstacle:Obstacle;
@@ -24,8 +24,14 @@
 			obstacle.y = 40;
 			
 			add( obstacle = new Obstacle() );
-			obstacle.x = 200;
-			obstacle.y = 120;
+			obstacle.x = 140;
+			obstacle.y = 175;
+		
+			var girl:Girl;
+			
+			add( girl = new Girl() );
+			girl.x = 170;
+			girl.y = 110;
 		}
 	}
 }
