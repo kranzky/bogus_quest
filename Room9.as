@@ -39,7 +39,7 @@
 			var key:GoldKey;
 			
 			add( key = new GoldKey() )
-			key.x = 80;
+			key.x = 240;
 			key.y = 180;
 		}
 	}

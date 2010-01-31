@@ -16,10 +16,13 @@
 		public function CreditText() 
 		{
 			active = true;
+		}
+		public function reset():void
+		{
 			_count = 0;
 			_index = 0;
 			_show = true;
-			_keep = false;
+			_keep = false;			
 		}
 		override public function update():void
 		{

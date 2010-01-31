@@ -172,11 +172,22 @@
 			{
 				_x = Main.player.x;
 				_y = Main.player.y;
+				if ( this is Room1 )
+				{
+					_x = 40;
+					_y = 90;
+				}
 			}
 			if ( _timer == 60 && _x > 0 )
 			{
 				var boy:Boy;
 				add( boy = new Boy() );
+				if ( this is Room1 )
+				{
+					
+				}
+				else
+				{
 				if ( Math.abs( _x - 160 ) > Math.abs( _y - 120 ) )
 				{
 					if ( _x < 160 )
@@ -198,6 +209,7 @@
 					{
 						_y = 340;
 					}					
+				}
 				}
 				boy.x = _x;
 				boy.y = _y;

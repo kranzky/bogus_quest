@@ -22,7 +22,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Rocket, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -155,6 +155,16 @@
 			var portal:Portal = new portalClass( type );
 			_portals.push( portal );
 			return portal;
+		}
+		
+		public static function reset():void
+		{
+			player = new Player();
+			credits.reset();
+			door1.locked = true;
+			door2.locked = true;
+			door3.locked = true;
+			state = 0;
 		}
 	}
 }
