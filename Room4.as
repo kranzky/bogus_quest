@@ -21,7 +21,7 @@
 			
 			add( bomb = new Gem() );
 			bomb.x = 80;
-			bomb.y = 80;
+			bomb.y = 84;
 			bomb.bomb = true;
 			
 			var obstacle:Obstacle;
@@ -35,7 +35,7 @@
 			obstacle.y = 120;
 			
 			add( obstacle = new Obstacle() );
-			obstacle.x = 130;
+			obstacle.x = 140;
 			obstacle.y = 40;
 			
 			add( obstacle = new Obstacle() );

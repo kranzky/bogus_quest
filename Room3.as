@@ -29,6 +29,11 @@
 			sign.x = 140;
 			sign.y = 175;
 			
+			if ( Main.state > 8 )
+			{
+				return;
+			}
+			
 			var boy:Boy;
 			add( boy = new Boy() );
 			boy.x = 190;

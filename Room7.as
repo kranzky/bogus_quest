@@ -20,7 +20,7 @@
 			
 			add( obstacle = new Obstacle() );
 			obstacle.x = 80;
-			obstacle.y = 140;
+			obstacle.y = 155;
 
 			add( obstacle = new Obstacle() );
 			obstacle.x = 190;

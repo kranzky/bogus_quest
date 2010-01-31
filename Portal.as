@@ -70,13 +70,10 @@
 			{
 				return;
 			}
-			// teleport through portals
+			// teleport through portals			
 			if ( ! collideWith( Main.player, x, y ) )
 			{
-				if ( ! locked )
-				{
-					_open = true;
-				}
+				_open = true;
 				return;
 			}
 			if ( ! _open )
@@ -108,7 +105,7 @@
 					case 3: Main.player.x = 144; Main.player.y = sprite.height + 16; break;
 					case 4: Main.player.x = 320 - sprite.width - 16; Main.player.y = 112; break;
 					case 1: Main.player.x = 176; Main.player.y = 208 - sprite.height; break;
-					case 2: Main.player.x = sprite.width + 16; Main.player.y = 112; break;
+					case 2: Main.player.x = sprite.width + 18; Main.player.y = 112; break;
 				}
 				trace( "Room2" );
 				FP.goto = new room2();
