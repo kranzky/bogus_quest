@@ -22,7 +22,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -119,8 +119,8 @@
 			portal.locked = true;
 			door3 = portal;
 
-			credits.initial = 300;
-			credits.delay = 180;
+			credits.initial = 200;
+			credits.delay = 120;
 			credits.y = 226;
 			credits.text.push( "RocketHands Presents" );
 			credits.text.push( "a Kranzky Brothers Production" );

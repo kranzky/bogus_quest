@@ -15,6 +15,8 @@
 		override public function init():void
 		{
 			super.init();
+			
+			trace( Main.state );
 
 			var obstacle:Obstacle;
 			
@@ -74,7 +76,7 @@
 			wall.x = 70;
 			wall.y = 114;
 			
-			if ( Main.state < 8 )
+			if ( Main.state <= 9 )
 			{
 				Main.state = 10;
 			}
