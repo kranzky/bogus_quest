@@ -26,6 +26,11 @@
 		{
 			super.init();
 			
+			if ( Main.state < 8 )
+			{
+				Main.state = 10;
+			}
+			
 			var gem:Gem;
 			for ( var i:int = 0; i < 8; i++)
 			{

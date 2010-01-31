@@ -73,6 +73,19 @@
 			add( wall = new BaseWall( "Throne", ImgThrone, 59, 62 ) );
 			wall.x = 70;
 			wall.y = 114;
+			
+			if ( Main.state < 8 )
+			{
+				Main.state = 10;
+			}
+
+			if ( Main.state < 13 )
+			{
+			var boy:Boy;
+			add( boy = new Boy() );
+			boy.x = 80;
+			boy.y = 110;
+			}
 		}
 	}
 }

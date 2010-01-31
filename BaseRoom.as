@@ -36,6 +36,10 @@
 		public var bushBottom:Boolean;
 		public var pr:PM_PRNG;
 		
+		internal var _timer:int = 0;
+		internal var _x:int = 0;
+		internal var _y:int = 0;
+				
 		public function BaseRoom( name:String, seed:int ) 
 		{
 			_name = name;
@@ -158,6 +162,54 @@
 			add( tileMap2 );			
 		}
 		
+		override public function update():void
+		{
+			if ( Main.state < 13 )
+			{
+				return;
+			}
+			if ( _timer == 0 )
+			{
+				trace( _x );
+				trace( _y );
+				_x = Main.player.x;
+				_y = Main.player.y;
+			}
+			if ( _timer == 60 && _x > 0 )
+			{
+				var boy:Boy;
+				add( boy = new Boy() );
+				if ( Math.abs( _x - 160 ) > Math.abs( _y - 120 ) )
+				{
+					if ( _x < 160 )
+					{
+						_x = -100;
+					}
+					else
+					{
+						_x = 420;
+					}
+				}
+				else
+				{
+					if ( _y < 120 )
+					{
+						_y = -100;
+					}
+					else
+					{
+						_y = 340;
+					}					
+				}
+				boy.x = _x;
+				boy.y = _y;
+				_x = -1;
+			}
+			else
+			{
+				_timer += 1;
+			}
+		}
 		override public function render():void
 		{
 			if ( Main.player.hasKey )

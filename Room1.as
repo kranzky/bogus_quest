@@ -46,6 +46,7 @@
 		override public function update():void
 		{
 			_count += 1;
+			super.update();
 		}
 		
 		override public function render():void

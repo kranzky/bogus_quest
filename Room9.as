@@ -24,15 +24,12 @@
 			add( obstacle = new Obstacle() );
 			obstacle.x = 320 - 90 + 8;
 			obstacle.y = 240 - 90 - 8;
-			var gem:Gem;
-			add( gem = new Gem() );
-			gem.x = 160 - 30;
-			gem.y = 112;
-			gem.bomb = true;
-			add( gem = new Gem() );
-			gem.x = 160 + 30 + 8;
-			gem.y = 112;
-			gem.bomb = true;
+			add( obstacle = new Obstacle() );
+			obstacle.x = 160 - 30;
+			obstacle.y = 112;
+			add( obstacle = new Obstacle() );
+			obstacle.x = 160 + 30 + 8;
+			obstacle.y = 112;
 			
 			if ( Main.player.hasKey || Main.player.usedKey2 )
 			{
