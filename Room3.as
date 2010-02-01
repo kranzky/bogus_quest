@@ -11,6 +11,15 @@
 			bushBottom = true;
 		}
 		
+		override public function leave():void
+		{
+			trace( "Leave " + Main.state );
+			if ( Main.state % 2 == 0 )
+			{
+				Main.state += 1;
+			}
+		}
+		
 		override public function init():void
 		{
 			super.init();

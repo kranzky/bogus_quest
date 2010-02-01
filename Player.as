@@ -5,6 +5,7 @@
 	import punk.util.Input;
 	import punk.util.Key;
 	import punk.core.World;
+	import punk.core.Entity;
 	
 	public class Player extends Acrobat
 	{		
@@ -15,6 +16,7 @@
 
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
+		internal var _da:Number = 0.0;
 		internal var _accel:Number = 0.5;
 		
 		public var teleporting:Boolean = false;
@@ -24,6 +26,7 @@
 		public var usedKey1:Boolean = false;
 		public var usedKey2:Boolean = false;
 		public var usedKey3:Boolean = false;
+		public var shadow:Shadow;
 		
 		public function Player() 
 		{
@@ -38,8 +41,15 @@
 			reset();
 		}
 		
+		override public function collide(type:String, x:int, y:int):Entity
+		{
+			return shadow.collide( type, x, y );
+		}
+		
 		public function teleport( room1:Class, room2:Class ):void
 		{
+			_dx = 0;
+			_dy = 0;
 			if ( room1 == Room3 && room2 == Death )
 			{
 				if ( Main.state < 2 )
@@ -69,11 +79,13 @@
 			var room:BaseRoom = FP.world as BaseRoom;
 			
 			// bounce of walls
-			if ( ! falling && collide( "wall", x + _dx, y ) )
+			var portal:Portal = shadow.collide( "portal", x + _dx, y ) as Portal;
+			if ( ! falling && ( shadow.collide( "wall", x + _dx, y ) || portal && portal.locked ) )
 			{
 				_dx *= -1;
 			}
-			if ( ! falling && collide( "wall", x, y + _dy ) )
+			portal = shadow.collide( "portal", x, y + _dy ) as Portal;
+			if ( ! falling && ( shadow.collide( "wall", x, y + _dy ) || portal && portal.locked ) )
 			{
 				_dy *= -1;
 			}
@@ -121,27 +133,38 @@
 			// move
 			x += _dx;
 			y += _dy;
+			angle += _da;
+			shadow.visible = ! tumbling;
+			shadow.x = x;
+			shadow.y = falling ? 110 : y + 4;
+
 			if ( tumbling )
 			{
-				_dx += Math.random() * 0.4 - Math.random() * 0.4;
-				_dy += Math.random() * 0.4 - Math.random() * 0.4;
+				_dx += Math.random() * 0.5 - Math.random() * 0.5;
+				_dy += Math.random() * 0.5 - Math.random() * 0.5;
+				_da += Math.random() * 3 - Math.random() * 3;
 				sprite = FP.getSprite( ImgPlayerTumble, 32, 32, true, true, 16, 16 );
-				flipX = _dx > 0;
-				flipY = _dy > 0;
 				return;
 			}
-			if ( falling )
+			else if ( falling )
 			{
 				sprite = FP.getSprite( ImgPlayerTumble, 32, 32, true, true, 16, 16 );
 				_dy += 0.6;
 				_dx *= 0.93;
 				_dy *= 0.93;
+				angle = 0;
+				_da = 0;
 				falling = Math.abs( _dy ) > 0.1;
 				if ( ! falling )
 				{
 					sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
 					flipY = false;
 				}
+			}
+			else
+			{
+				angle = 0;
+				_da = 0;
 			}
 			// slow down over time
 			if ( ! falling )
@@ -153,24 +176,40 @@
 			if ( ! falling && Input.check("right"))
 			{
 				sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
+				if ( teleporting && x > 160 + 80 )
+				{
+					teleporting = false;
+				}
 				_dx += _accel;
 				flipX = true;
 			}
 			if ( ! falling && Input.check("left"))
 			{
 				sprite = FP.getSprite( ImgPlayerLeft, 32, 32, true, false, 16, 16 );
+				if ( teleporting && x < 160 - 80 )
+				{
+					teleporting = false;
+				}
 				_dx -= _accel;
 				flipX = false;
 			}
 			if ( ! falling && Input.check("up"))
 			{
 				sprite = FP.getSprite( ImgPlayerUp, 32, 32, false, false, 16, 16 );
+				if ( teleporting && y < 120 - 60 )
+				{
+					teleporting = false;
+				}
 				_dy -= _accel;
 				flipX = false;
 			}
 			if ( ! falling && Input.check("down"))
 			{
 				sprite = FP.getSprite( ImgPlayerDown, 32, 32, false, false, 16, 16 );
+				if ( teleporting && y > 120 + 60 )
+				{
+					teleporting = false;
+				}
 				_dy += _accel;
 				flipX = false;
 			}

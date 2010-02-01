@@ -7,13 +7,9 @@
 		public function Shadow()
 		{
 			super( "Shadow", ImgShadow, 32, 32 );
-		}
-		
-		override public function update():void
-		{
-			visible = ! Main.player.tumbling;
-			x = Main.player.x;
-			y = Main.player.falling ? 110 : Main.player.y + 4;
+			setCollisionRect( 20, 8, 6, 26 );
+			setCollisionType( "feet" );
+			Main.player.shadow = this;
 		}
 	}
 }

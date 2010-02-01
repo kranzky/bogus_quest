@@ -8,6 +8,7 @@
 		
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
+		internal var _wait:Boolean = true;
 
 		public function GoldKey() 
 		{
@@ -19,6 +20,12 @@
 		override public function update():void
 		{
 			var room:BaseRoom = FP.world as BaseRoom;
+			
+			if ( _wait && ( Math.abs( x - Main.player.x ) > 60 || Math.abs( y - Main.player.y ) > 60 ) )
+			{
+				return;
+			}
+			_wait = false;
 
 			if ( collideWith( Main.player, x, y ) && ! Main.player.hasKey )
 			{

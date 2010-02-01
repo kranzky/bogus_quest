@@ -57,7 +57,7 @@
 			{
 				return;
 			}
-			if ( collideWith( Main.player, x, y ) )
+			if ( collideWith( Main.player.shadow, x, y ) )
 			{
 				Main.state = 9;
 				FP.goto = new Death();
