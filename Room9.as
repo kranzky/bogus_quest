@@ -20,7 +20,7 @@
 			
 			add( key = new GoldKey() )
 			key.x = 160;
-			key.y = 112;
+			key.y = ( Main.player.y > 120 ) ? 40 : 180;
 		}
 	}
 }

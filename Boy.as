@@ -23,17 +23,16 @@
 			super( "Boy", ImgBoy, 25, 34 );
 			reset();
 			active = true;
+			setCollisionRect( 20, 16, 6, 16 );
 		}
 
 		override public function update():void
 		{
+			super.update();
 			if ( Main.state < 9 )
 			{
 				return;
 			}
-			Main.door1.locked = Main.state < 13;
-			Main.door2.locked = Main.state < 13;
-			Main.door3.locked = Main.state < 13;
 			_counter += 1;	
 			if ( Main.state == 10 && _counter > 300 )
 			{
@@ -51,6 +50,13 @@
 			if ( Main.state == 12 && _counter > 800 )
 			{
 				Main.state = 13;
+				Main.boss = true;
+				Main.player.usedKey1 = false;
+				Main.player.usedKey2 = false;
+				Main.door1.locked = true;
+				Main.door2.locked = true;
+				Main.door3.locked = false;
+				Main.player.hasKey = false;
 			}
 			reset();
 			if ( Main.state < 13 )
@@ -60,6 +66,11 @@
 			if ( collideWith( Main.player.shadow, x, y ) )
 			{
 				Main.state = 9;
+				Main.player.usedKey1 = true;
+				Main.player.usedKey2 = true;
+				Main.door1.locked = false;
+				Main.door2.locked = false;
+				Main.player.hasKey = false;
 				FP.goto = new Death();
 				return;
 			}
@@ -109,7 +120,6 @@
 				return;
 			}
 			var sprite:SpriteMap = FP.getSprite( _bitmap, 200, 60, false, false, 100, 30 );
-			this.depth = -1;
 			if ( Main.state > 9 )
 			{
 				drawSprite( sprite, 0, 160, 60 );

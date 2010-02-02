@@ -71,6 +71,7 @@
 				falling = true;
 			}
 			tumbling = false;
+			depth = 2;
 			_dx = 0;
 			_dy = 0;
 		}
@@ -212,6 +213,11 @@
 				}
 				_dy += _accel;
 				flipX = false;
+			}
+			if ( Main.state > 9 && Main.state < 13 )
+			{
+				_dy = 0;
+				_dx = 0;
 			}
 			// animate based on speed
 			var speed:Number = Math.abs( _dx ) + Math.abs( _dy );

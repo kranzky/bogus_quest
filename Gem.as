@@ -30,6 +30,7 @@
 			sprite = FP.getSprite( bitmap, 32, 32, false, false, 16, 16 );
 			setCollisionMask( sprite.getImage() );
 			setCollisionType( "gem" );
+			depth = 3;
 		}
 		
 		override public function update():void
@@ -38,7 +39,7 @@
 			{
 				sprite = FP.getSprite( ImgBomb, 32, 32, false, false, 16, 16 );
 			}
-			if ( collideWith( Main.player, x, y ) )
+			if ( ( bomb && collideWith( Main.player.shadow, x, y ) ) || ( ! bomb && collideWith( Main.player, x, y ) ) )
 			{
 				if ( bomb )
 				{

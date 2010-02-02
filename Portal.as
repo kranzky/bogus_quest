@@ -31,6 +31,8 @@
 			active = true;
 			locked = false;
 			fake = false;
+			
+			depth = 3;
 		}
 		
 		public function addToWorld():void
@@ -70,7 +72,11 @@
 				return;
 			}
 			// teleport through portals			
-			if ( ! collideWith( Main.player.shadow, x, y )  )
+			if ( ! locked && ! collideWith( Main.player.shadow, x, y )  )
+			{
+				return;
+			}
+			if ( locked && ! collideWith( Main.player, x, y )  )
 			{
 				return;
 			}
@@ -90,6 +96,10 @@
 			if ( locked )
 			{
 				return;
+			}
+			if ( fake )
+			{
+				fake = false;
 			}
 			trace( "Teleporting..." );
 			Main.player.teleport( room1, room2 );

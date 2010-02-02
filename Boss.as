@@ -75,6 +75,11 @@
 			add( wall = new BaseWall( "Throne", ImgThrone, 59, 62 ) );
 			wall.x = 70;
 			wall.y = 114;
+			wall.depth = 10;
+			
+			Main.player.x = 180
+			Main.player.y = 100
+			Main.player.flipX = false
 			
 			if ( Main.state <= 9 )
 			{

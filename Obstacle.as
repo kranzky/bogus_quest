@@ -26,6 +26,7 @@
 				case 3: bitmap = outside ? ImgBarrel : ImgChest; break;
 			}
 			super( "Object", bitmap );
+			depth = 4;
 		}	
 	}
 }

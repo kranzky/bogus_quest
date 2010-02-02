@@ -23,8 +23,16 @@
 			_count += 1;
 			if ( _count == 200 )
 			{
-				FP.goto = new Room1();
 				Main.player.reset();
+				if ( Main.boss )
+				{
+					FP.goto = new Boss();
+					Main.player.falling = false;
+				}
+				else
+				{
+					FP.goto = new Room1();
+				}
 			}
 		}
 		

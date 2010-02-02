@@ -18,11 +18,12 @@
 		public static var door1:Portal;
 		public static var door2:Portal;
 		public static var door3:Portal;
+		public static var boss:Boolean = false;
 		
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Room8, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Boss, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -165,6 +166,7 @@
 			door2.locked = true;
 			door3.locked = true;
 			state = 0;
+			boss = false;
 		}
 	}
 }

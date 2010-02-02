@@ -16,7 +16,9 @@
 		{
 			super( "Girl", ImgGirl, 54, 86 );
 			reset();
-			active = true;
+			active = true
+			setCollisionRect( 50, 28, -10, 30 );
+			depth = 1;
 		}
 
 		public function reset():void
@@ -37,12 +39,12 @@
 		{
 			super.render();
 			var sprite:SpriteMap = FP.getSprite( _bitmap, 200, 60, false, false, 100, 30 );
-			this.depth = -1;
 			drawSprite( sprite, 0, 250, 40 );
 		}
 		
 		override public function update():void
 		{
+			super.update();
 			if ( collideWith( Main.player.shadow, x, y ) && Main.player.hasKey )
 			{
 				Main.player.usedKey1 = false;

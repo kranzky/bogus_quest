@@ -16,6 +16,8 @@
 			super( "Ship", ImgShip );
 			scaleX = 3;
 			scaleY = 3;
+			depth = 3;
+			setCollisionRect( 80, 32, -28, 32 );
 			active = true;
 		}
 		
@@ -31,6 +33,7 @@
 		}
 		override public function update():void
 		{
+			super.update();
 			if ( Main.state == 15 )
 			{
 				_dy -= 0.01;

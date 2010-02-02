@@ -10,6 +10,7 @@
 			setCollisionRect( 20, 8, 6, 26 );
 			setCollisionType( "feet" );
 			Main.player.shadow = this;
+			depth = 2;
 		}
 	}
 }

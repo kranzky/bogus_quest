@@ -12,6 +12,15 @@
 			sprite = FP.getSprite( bitmap, width, height, true, true, width * 0.5, height * 0.5 );
 			setCollisionMask( sprite.getImage() );
 			setCollisionType( "wall" );
+			depth = 3;
+		}
+		
+		override public function update():void
+		{
+			if ( depth < 4 )
+			{
+				depth = ( y > Main.player.y ) ? 1 : 3;
+			}
 		}
 	}
 }

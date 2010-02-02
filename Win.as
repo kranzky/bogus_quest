@@ -26,7 +26,7 @@
 				Main.reset();
 				FP.goto = new Rocket();
 			}
-			if ( _count == 280 )
+			if ( _count == 200 )
 			{
 				FP.musicStop();
 			}
