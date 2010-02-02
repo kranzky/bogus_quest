@@ -35,10 +35,8 @@
 		public var bushBottom:Boolean;
 		public var pr:PM_PRNG;
 		
-		internal var _timer:int = 0;
-		internal var _x:int = 0;
-		internal var _y:int = 0;
-				
+		internal var _boy:Boy;
+
 		public function BaseRoom( name:String, seed:int ) 
 		{
 			_name = name;
@@ -157,61 +155,13 @@
 		
 		override public function update():void
 		{
-			if ( Main.state != 13 )
+			if ( _boy || this is Boss )
 			{
 				return;
 			}
-			if ( _timer == 0 )
-			{
-				_x = Main.player.x;
-				_y = Main.player.y;
-				if ( this is Room1 )
-				{
-					_x = 40;
-					_y = 90;
-				}
-			}
-			if ( _timer == 60 && _x > 0 )
-			{
-				var boy:Boy;
-				add( boy = new Boy() );
-				if ( this is Room1 )
-				{
-					
-				}
-				else
-				{
-				if ( Math.abs( _x - 160 ) > Math.abs( _y - 120 ) )
-				{
-					if ( _x < 160 )
-					{
-						_x = -100;
-					}
-					else
-					{
-						_x = 420;
-					}
-				}
-				else
-				{
-					if ( _y < 120 )
-					{
-						_y = -100;
-					}
-					else
-					{
-						_y = 340;
-					}					
-				}
-				}
-				boy.x = _x;
-				boy.y = _y;
-				_x = -1;
-			}
-			else
-			{
-				_timer += 1;
-			}
+			add( _boy = new Boy() );
+			_boy.x = 320 - Main.player.x;
+			_boy.y = 240 - Main.player.y;
 		}
 		override public function render():void
 		{

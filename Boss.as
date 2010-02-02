@@ -85,6 +85,8 @@
 			{
 				Main.state = 10;
 			}
+			
+			trace( Main.state );
 
 			if ( Main.state < 13 )
 			{

@@ -28,10 +28,10 @@
 			
 			add( obstacle = new Obstacle() );
 			obstacle.x = 80;
-			obstacle.y = 140;
+			obstacle.y = 150;
 			
 			add( obstacle = new Obstacle() );
-			obstacle.x = 60;
+			obstacle.x = 80;
 			obstacle.y = 120;
 			
 			add( obstacle = new Obstacle() );

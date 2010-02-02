@@ -13,7 +13,6 @@
 
 		override public function activateGems():void
 		{
-			Main.player.usedKey3 = true;
 			_remaining = countClass( Gem );
 			var activate:Function = function( gem:Gem ):void
 			{
@@ -50,11 +49,6 @@
 					gem.y = j * 32 + 48;
 					gem.bomb = true;
 				}
-			}
-			
-			if ( Main.player.usedKey3 )
-			{
-				activateGems();
 			}
 		}
 		

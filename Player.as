@@ -25,7 +25,6 @@
 		public var hasKey:Boolean = false;
 		public var usedKey1:Boolean = false;
 		public var usedKey2:Boolean = false;
-		public var usedKey3:Boolean = false;
 		public var shadow:Shadow;
 		
 		public function Player() 

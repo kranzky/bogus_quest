@@ -81,8 +81,8 @@
 			x += _dx;
 			y += _dy;
 			// slow down over time
-			_dx *= 0.6;
-			_dy *= 0.6;
+			_dx *= 0.1;
+			_dy *= 0.1;
 		}
 		
 		public function reset():void
