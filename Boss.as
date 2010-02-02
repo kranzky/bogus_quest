@@ -16,8 +16,6 @@
 		{
 			super.init();
 			
-			trace( Main.state );
-
 			var obstacle:Obstacle;
 			
 			add( obstacle = new Obstacle() );
@@ -86,14 +84,12 @@
 				Main.state = 10;
 			}
 			
-			trace( Main.state );
-
 			if ( Main.state < 13 )
 			{
-			var boy:Boy;
-			add( boy = new Boy() );
-			boy.x = 80;
-			boy.y = 110;
+				var boy:Boy;
+				add( boy = new Boy() );
+				boy.x = 80;
+				boy.y = 110;
 			}
 		}
 	}

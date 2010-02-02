@@ -65,17 +65,12 @@
 			}
 			if ( collideWith( Main.player.shadow, x, y ) )
 			{
-				Main.state = 9;
-				Main.player.usedKey1 = true;
-				Main.player.usedKey2 = true;
-				Main.door1.locked = false;
-				Main.door2.locked = false;
-				Main.player.hasKey = false;
 				FP.goto = new Death();
 				return;
 			}
 			_dx += ( Main.player.x - x ) * 0.015;
 			_dy += ( Main.player.y - y ) * 0.015;
+			flipX = ( _dx < 0 );
 			
 			// move
 			x += _dx;

@@ -46,13 +46,17 @@
 		override public function update():void
 		{
 			_count += 1;
+			if ( _count > 60 )
+			{
+				Main.splash = false;
+			}
 			super.update();
 		}
 		
 		override public function render():void
 		{
 			super.render();
-			if ( _count < 60 )
+			if ( _count < 60 && Main.splash )
 			{
 				FP.screen.drawClear( 0xFFFFFFFF, (60 - _count ) / 60 );
 			}

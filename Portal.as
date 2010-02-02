@@ -66,6 +66,10 @@
 			
 		override public function update():void
 		{
+			if ( fake && Main.boss )
+			{
+				fake = false;
+			}
 			sprite = FP.getSprite( ( locked || fake )? _bitmapClosed : _bitmapOpen, 32, 32, false, false, 16, 16 );
 			if ( Main.player.teleporting || Main.player.falling )
 			{
@@ -76,7 +80,7 @@
 			{
 				return;
 			}
-			if ( locked && ! collideWith( Main.player, x, y )  )
+			if ( locked && ! collideWith( Main.player, x, y ) && ! collideWith( Main.player.shadow, x, y ) )
 			{
 				return;
 			}
@@ -102,6 +106,10 @@
 				fake = false;
 			}
 			trace( "Teleporting..." );
+			if ( Main.boss )
+			{
+				Main.lock = this;
+			}
 			Main.player.teleport( room1, room2 );
 			if ( FP.world is room1 && FP.world is room2 )
 			{

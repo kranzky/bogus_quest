@@ -155,7 +155,7 @@
 		
 		override public function update():void
 		{
-			if ( _boy || this is Boss )
+			if ( ! Main.boss || _boy || this is Boss )
 			{
 				return;
 			}

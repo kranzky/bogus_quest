@@ -26,8 +26,15 @@
 				Main.player.reset();
 				if ( Main.boss )
 				{
-					FP.goto = new Boss();
+					Main.state = 9;
+					Main.player.usedKey1 = true;
+					Main.player.usedKey2 = true;
+					Main.unlockAll();
+					Main.door1.locked = false;
+					Main.door2.locked = false;
+					Main.player.hasKey = false;
 					Main.player.falling = false;
+					FP.goto = new Boss();
 				}
 				else
 				{

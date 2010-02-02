@@ -137,6 +137,12 @@
 			shadow.visible = ! tumbling;
 			shadow.x = x;
 			shadow.y = falling ? 110 : y + 4;
+			
+			if ( Main.lock && x > 80 && x < 240 && y > 80 && y < 160 )
+			{
+				Main.lock.locked = true;
+				Main.lock = null;
+			}
 
 			if ( tumbling )
 			{

@@ -19,6 +19,7 @@
 		override public function init():void
 		{
 			trace( "Init: " + _name );	
+			Main.splash = true;
 		}
 
 		override public function update():void

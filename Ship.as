@@ -33,7 +33,10 @@
 		}
 		override public function update():void
 		{
-			super.update();
+			if ( ! Main.boss )
+			{
+				super.update();
+			}
 			if ( Main.state == 15 )
 			{
 				_dy -= 0.01;

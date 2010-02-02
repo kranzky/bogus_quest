@@ -18,12 +18,16 @@
 		public static var door1:Portal;
 		public static var door2:Portal;
 		public static var door3:Portal;
+		public static var door4:Portal;
+		public static var door5:Portal;
+		public static var lock:Portal;
 		public static var boss:Boolean = false;
+		public static var splash:Boolean = false;
 		
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Boss, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -98,6 +102,7 @@
 			portal.wall = 3;
 			portal.room2 = Room8;
 			portal.fake = true;
+			door4 = portal;
 			
 			// Room 8
 			portal = _addPortal( Door );
@@ -105,6 +110,7 @@
 			portal.wall = 3;
 			portal.room2 = Room9;
 			portal.fake = true;
+			door5 = portal;
 
 			// Room 9
 			portal = _addPortal( Door );
@@ -162,11 +168,26 @@
 		{
 			player = new Player();
 			credits.reset();
+			unlockAll();
 			door1.locked = true;
 			door2.locked = true;
 			door3.locked = true;
+			door4.fake = true;
+			door5.fake = true;
 			state = 0;
 			boss = false;
+			splash = false;
+			lock = null;
+		}
+		
+		public static function unlockAll():void
+		{
+			var unlock:Function = function( portal:Portal, index:Number, arr:Array ):void
+			{
+				portal.locked = false;
+				portal.fake = false;
+			};
+			_portals.forEach( unlock );
 		}
 	}
 }
