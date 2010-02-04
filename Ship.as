@@ -16,7 +16,7 @@
 			super( "Ship", ImgShip );
 			scaleX = 3;
 			scaleY = 3;
-			depth = 3;
+			depth = 2;
 			setCollisionRect( 80, 32, -28, 32 );
 			active = true;
 		}

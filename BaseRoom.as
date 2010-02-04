@@ -116,12 +116,16 @@
 							     i == 0 && bushLeft || i == 9 && bushRight )
 							{
 								bush = new Bush();
+							    if ( i == 0 || i == 9 )
+								{
+									bush.depth = 999;
+									bush.setCollisionMask( bush.sprite.getImage() );
+								}
 							}
 							else
 							{
 								bush = new Wall();
 							}
-							bush.depth = 999;
 							bush.x = 16 + i * 32;
 							bush.y = 16 + j * 32;
 							add( bush );

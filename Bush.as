@@ -7,7 +7,6 @@
 		public function Bush()
 		{
 			super( "Bush", ImgBush );
-			
 		}	
 	}
 }

@@ -27,7 +27,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -45,7 +45,7 @@
 			// Room 2
 			portal = _addPortal( Door, 1 );
 			portal.room1 = Room2;
-			portal.wall = 4;
+			portal.wall = 3;
 			portal.room2 = Death;
 			
 			portal = _addPortal( Door, 1 );
@@ -125,7 +125,7 @@
 			portal.room2 = Boss;
 			portal.locked = true;
 			door3 = portal;
-
+			
 			credits.initial = 200;
 			credits.delay = 120;
 			credits.y = 226;

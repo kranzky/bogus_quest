@@ -28,14 +28,6 @@
 			{
 				for ( var j:int = 0; j < 5; j++ )
 				{
-					if ( j > 0 && j < 4 && i > 2 && i < 5 )
-					{
-						continue;
-					}
-					if ( j == 2 && i < 3 )
-					{
-						continue;
-					}
 					_remaining += 1;
 					add( gem = new Gem() );
 					gem.x = i * 32 + 48;

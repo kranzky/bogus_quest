@@ -7,7 +7,8 @@
 		public function Wall()
 		{
 			super( "Wall", ImgWall );
-			
+			setCollisionMask( sprite.getImage() );
+			depth = 999;
 		}	
 	}
 }

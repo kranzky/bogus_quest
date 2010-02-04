@@ -18,8 +18,8 @@
 			
 			var sign:Sign;
 			
-			add( sign = new Sign( 2, true ) );
-			sign.x = 90;
+			add( sign = new Sign( 3, true ) );
+			sign.x = 100;
 			sign.y = 112;
 
 			var obstacle:Obstacle;
@@ -33,12 +33,12 @@
 			obstacle.y = 180;
 
 			add( obstacle = new Obstacle() );
-			obstacle.x = 140;
-			obstacle.y = 160;
+			obstacle.x = 240;
+			obstacle.y = 150;
 
 			add( obstacle = new Obstacle() );
-			obstacle.x = 220;
-			obstacle.y = 90;
+			obstacle.x = 240;
+			obstacle.y = 70;
 		}
 	}
 }

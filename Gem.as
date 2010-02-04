@@ -35,9 +35,23 @@
 		
 		override public function update():void
 		{
+			depth = ( y > Main.player.y ) ? 1 : 3;
 			if ( bomb && ! fake || ! bomb && fake )
 			{
 				sprite = FP.getSprite( ImgBomb, 32, 32, false, false, 16, 16 );
+				if ( ! fake )
+				{
+					setCollisionRect( sprite.getImage().width, sprite.getImage().height * 0.5, 0,
+									  sprite.getImage().height * 0.5 );
+				}
+				else
+				{
+					setCollisionMask( sprite.getImage() );
+				}
+			}
+			else
+			{				
+				setCollisionMask( sprite.getImage() );
 			}
 			if ( ( bomb && collideWith( Main.player.shadow, x, y ) ) || ( ! bomb && collideWith( Main.player, x, y ) ) )
 			{
