@@ -42,6 +42,15 @@
 			obstacle.x = 200;
 			obstacle.y = 120;
 			
+			if ( ! Main.passed && ! Main.player.hasGrog )
+			{
+				var grog:Grog;
+				
+				add( grog = new Grog() )
+				grog.x = 210;
+				grog.y = 120;
+			}
+			
 			if ( Main.player.hasKey || Main.player.usedKey1 )
 			{
 				return;

@@ -16,15 +16,43 @@
 				Main.state = 9;
 			}
 			
-			var obstacle:Obstacle;
+			var wall:Wall;
 			
-			add( obstacle = new Obstacle() );
-			obstacle.x = 80;
-			obstacle.y = 155;
+			add( wall = new Wall() );
+			wall.setCollisionMask( wall.sprite.getImage() );
+			wall.x = 144;
+			wall.y = 48;
+			wall.depth = 4;
 
-			add( obstacle = new Obstacle() );
-			obstacle.x = 190;
-			obstacle.y = 90;	
+			add( wall = new Wall() );
+			wall.setCollisionMask( wall.sprite.getImage() );
+			wall.x = 144;
+			wall.y = 112;
+			wall.depth = 4;
+
+			add( wall = new Wall() );
+			wall.setCollisionMask( wall.sprite.getImage() );
+			wall.x = 144;
+			wall.y = 144;
+			wall.depth = 4;
+
+			add( wall = new Wall() );
+			wall.setCollisionMask( wall.sprite.getImage() );
+			wall.x = 144;
+			wall.y = 176;
+			wall.depth = 4;
+			
+			if ( Main.passed )
+			{
+				return;
+			}
+			
+			var guard:Guard;
+			
+			add( guard = new Guard() );
+			guard.x = 128;
+			guard.y = 80;
+
 		}
 	}
 }

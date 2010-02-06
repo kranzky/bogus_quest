@@ -35,6 +35,8 @@
 			scenery.y = 92;
 			
 			add( new Lever() );
+			
+			Main.passed = true;
 		}
 	}
 }
