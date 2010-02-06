@@ -24,11 +24,13 @@
 		public static var boss:Boolean = false;
 		public static var splash:Boolean = false;
 		public static var paused:Boolean = true;
+		public static var time:int = 0;
+		public static var best:int = 59970;
 		
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, false, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Room1, true, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -180,6 +182,7 @@
 			splash = false;
 			lock = null;
 			paused = true;
+			time = 0;
 		}
 		
 		public static function unlockAll():void

@@ -85,6 +85,10 @@
 			{
 				return;
 			}
+			if ( Main.time < 59970 )
+			{
+				Main.time += 1;
+			}
 			var room:BaseRoom = FP.world as BaseRoom;
 			
 			// bounce of walls

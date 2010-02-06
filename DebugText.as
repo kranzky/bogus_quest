@@ -8,12 +8,13 @@
 		{
 			active = true;
 			alpha = 0.2;
-			x = 308;
+			x = 270;
 			y = 226;
 		}
 		override public function update():void
 		{
-			setString( String( FP.engine.FPS ) );
+			var best:int = Main.best > 0 ? Main.best : Main.time;
+			setString( int( best / 60 ) + " | " + int( Main.time / 60 ) );
 		}
 	}
 }

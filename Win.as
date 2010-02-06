@@ -16,6 +16,10 @@
 		
 		override public function init():void
 		{
+			if ( Main.time < Main.best || Main.best <= 0 )
+			{
+				Main.best = Main.time;
+			}
 		}
 
 		override public function update():void
