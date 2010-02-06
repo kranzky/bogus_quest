@@ -33,6 +33,10 @@
 		}
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			if ( ! Main.boss )
 			{
 				super.update();

@@ -19,6 +19,10 @@
 		
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			if ( collideWith( Main.player, x, y ) )
 			{
 				FP.goto = new Death();

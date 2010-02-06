@@ -45,6 +45,10 @@
 		override public function update():void
 		{
 			super.update();
+			if ( Main.paused )
+			{
+				return;
+			}
 			if ( collideWith( Main.player.shadow, x, y ) && Main.player.hasKey )
 			{
 				Main.player.usedKey1 = false;

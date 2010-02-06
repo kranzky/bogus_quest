@@ -36,6 +36,7 @@
 			Input.define( "left", Key.LEFT, Key.A );
 			Input.define( "up", Key.UP, Key.W );
 			Input.define( "down", Key.DOWN, Key.S );
+			Input.define( "pause", Key.SPACE );
 			
 			reset();
 		}
@@ -76,6 +77,14 @@
 		}
 		override public function update():void
 		{
+			if ( Input.check( "pause" ) )
+			{
+				Main.paused = false;
+			}
+			if ( Main.paused )
+			{
+				return;
+			}
 			var room:BaseRoom = FP.world as BaseRoom;
 			
 			// bounce of walls

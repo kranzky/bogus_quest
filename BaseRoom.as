@@ -22,7 +22,8 @@
 		[Embed(source = 'data/status.png')] private var ImgStatus:Class;
 		[Embed(source = 'data/tile.png')] private var ImgTile:Class;
 		[Embed(source = 'data/key_icon.png')] private var ImgKeyIcon:Class;
-		
+		[Embed(source = 'data/title.png')] private var ImgTitle:Class;
+
 		internal var _name:String = "BaseRoom";
 		
 		public var wrapLeft:Boolean;
@@ -66,6 +67,11 @@
 		
 		public function leave():void
 		{
+		}
+		
+		override public function focusOut():void
+		{
+			Main.paused = true;
 		}
 		
 		override public function init():void
@@ -159,6 +165,10 @@
 		
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			if ( ! Main.boss || _boy || this is Boss )
 			{
 				return;
@@ -173,6 +183,11 @@
 			{
 				var sprite:SpriteMap = FP.getSprite( ImgKeyIcon, 16, 16, false, false, 8, 8 );
 				drawSprite( sprite, 0, 10, 232 );
+			}
+			if ( Main.paused )
+			{
+				var title:SpriteMap = FP.getSprite( ImgTitle, 320, 240 );
+				drawSprite( title );				
 			}
 		}
 	}

@@ -29,6 +29,10 @@
 		override public function update():void
 		{
 			super.update();
+			if ( Main.paused )
+			{
+				return;
+			}
 			if ( Main.state < 9 )
 			{
 				return;

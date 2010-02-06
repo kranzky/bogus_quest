@@ -20,6 +20,10 @@
 		
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			_count += 1;
 			if ( _count == 200 )
 			{

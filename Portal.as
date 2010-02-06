@@ -66,6 +66,10 @@
 			
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			if ( fake && Main.boss )
 			{
 				fake = false;

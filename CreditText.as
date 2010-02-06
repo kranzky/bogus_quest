@@ -10,7 +10,7 @@
 		
 		internal var _count:int = 0;
 		internal var _index:int = 0;
-		internal var _show:Boolean = false;
+		internal var _show:Boolean = true;
 		internal var _keep:Boolean = false;
 		
 		public function CreditText() 
@@ -26,6 +26,13 @@
 		}
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				alpha = 1;
+				setString( "Press SPACE to Play" );
+				x = 160 - width * 0.5;
+				return;
+			}
 			if ( _index >= text.length )
 			{
 				return;
@@ -33,6 +40,7 @@
 			if ( initial > 0 )
 			{
 				initial -= 1;
+				setString("");
 				return;
 			}
 			_count += 1;

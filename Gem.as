@@ -35,6 +35,10 @@
 		
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			depth = ( y > Main.player.y ) ? 1 : 3;
 			if ( bomb && ! fake || ! bomb && fake )
 			{

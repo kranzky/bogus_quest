@@ -19,6 +19,10 @@
 		
 		override public function update():void
 		{
+			if ( Main.paused )
+			{
+				return;
+			}
 			var room:BaseRoom = FP.world as BaseRoom;
 			
 			if ( _wait && ( Math.abs( x - Main.player.x ) > 60 || Math.abs( y - Main.player.y ) > 60 ) )
