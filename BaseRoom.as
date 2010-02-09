@@ -22,6 +22,7 @@
 		[Embed(source = 'data/status.png')] private var ImgStatus:Class;
 		[Embed(source = 'data/tile.png')] private var ImgTile:Class;
 		[Embed(source = 'data/key_icon.png')] private var ImgKeyIcon:Class;
+		[Embed(source = 'data/red_key_icon.png')] private var ImgRedKeyIcon:Class;
 		[Embed(source = 'data/grog_icon.png')] private var ImgGrogIcon:Class;
 		[Embed(source = 'data/title.png')] private var ImgTitle:Class;
 
@@ -181,9 +182,15 @@
 		override public function render():void
 		{
 			var x:int = 10;
+			if ( Main.player.hasRedKey )
+			{
+				var sprite:SpriteMap = FP.getSprite( ImgRedKeyIcon, 16, 16, false, false, 8, 8 );
+				drawSprite( sprite, 0, x, 232 );
+				x += 16;
+			}
 			if ( Main.player.hasKey )
 			{
-				var sprite:SpriteMap = FP.getSprite( ImgKeyIcon, 16, 16, false, false, 8, 8 );
+				sprite = FP.getSprite( ImgKeyIcon, 16, 16, false, false, 8, 8 );
 				drawSprite( sprite, 0, x, 232 );
 				x += 16;
 			}

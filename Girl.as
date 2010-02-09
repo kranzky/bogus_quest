@@ -49,10 +49,17 @@
 			{
 				return;
 			}
-			if ( collideWith( Main.player.shadow, x, y ) && Main.player.hasKey )
+			if ( collideWith( Main.player.shadow, x, y ) && ( Main.player.hasKey || Main.player.hasRedKey ) )
 			{
-				Main.player.usedKey1 = false;
-				Main.player.hasKey = false;
+				if ( Main.player.hasRedKey )
+				{
+					Main.player.hasRedKey = false;
+				}
+				else
+				{
+					Main.player.usedKey1 = false;
+					Main.player.hasKey = false;
+				}
 				FP.goto = new Death();
 			}
 		}

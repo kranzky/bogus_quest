@@ -55,8 +55,10 @@
 				return;
 			}
 			if ( Math.abs( Main.player.x - x ) < 50 &&
-				 Math.abs( Main.player.y - y ) < 50 )
+				 Math.abs( Main.player.y - y ) < 50 &&
+				 Main.player.hasRedKey )
 			{
+				Main.player.hasRedKey = false;
 				Main.player.visible = false;
 				Main.player.active = false;
 				Main.player.x = x;

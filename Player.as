@@ -23,6 +23,7 @@
 		public var tumbling:Boolean = false;
 		public var falling:Boolean = false;
 		public var hasKey:Boolean = false;
+		public var hasRedKey:Boolean = false;
 		public var hasGrog:Boolean = false;
 		public var usedKey1:Boolean = false;
 		public var usedKey2:Boolean = false;

@@ -23,7 +23,7 @@
 		{
 			super.render();
 			var sprite:SpriteMap = FP.getSprite( _bitmap, 200, 60, false, false, 100, 30 );
-			drawSprite( sprite, 0, 200, 30 );
+			drawSprite( sprite, 0, 220, 30 );
 		}
 		
 		override public function update():void

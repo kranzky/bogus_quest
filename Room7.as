@@ -50,8 +50,8 @@
 			var guard:Guard;
 			
 			add( guard = new Guard() );
-			guard.x = 128;
-			guard.y = 80;
+			guard.x = 142;
+			guard.y = 82;
 
 		}
 	}
