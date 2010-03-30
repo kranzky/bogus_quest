@@ -6,6 +6,7 @@
 		[Embed(source = 'data/girl.png')] private var ImgGirl:Class;
 		[Embed(source = 'data/bubble9.png')] private var ImgBubble1:Class;
 		[Embed(source = 'data/bubble0.png')] private var ImgBubble2:Class;
+		[Embed(source = 'data/speech.mp3')] private const SndSpeech:Class;
 		
 		internal var _bitmap:Class;
 		internal var _counter:int = 0;
@@ -33,6 +34,7 @@
 				_bitmap = ImgBubble1;
 				delay = 9;
 			}
+			FP.play( SndSpeech );
 		}
 	
 		override public function render():void

@@ -6,7 +6,7 @@
 	{		
 		[Embed(source = 'data/arrow.png')] private var ImgArrow:Class;
 		[Embed(source = 'data/red_key.png')] private var ImgKey:Class;
-
+		[Embed(source = 'data/key.mp3')] private const SndKey:Class;
 		
 		public function Arrow() 
 		{
@@ -30,6 +30,7 @@
 				sprite = FP.getSprite( ImgKey, 32, 32, false, false, 16, 16 );
 				if ( collideWith( Main.player, x, y ) )
 				{
+					FP.play( SndKey );
 					FP.world.remove( this );
 					Main.player.hasRedKey = true;
 				}

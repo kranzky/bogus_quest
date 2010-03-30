@@ -5,7 +5,8 @@
 		[Embed(source = 'data/spikeplate.png')] private var ImgSpikes:Class;
 		[Embed(source = 'data/skeleton.png')] private var ImgBones:Class;
 		[Embed(source = 'data/hole.png')] private var ImgHole:Class;
-		
+		[Embed(source = 'data/drop.mp3')] private const SndDrop:Class;
+
 		public function Room8() 
 		{
 			super( "Room8", 548 );
@@ -45,6 +46,7 @@
 				arrow.x = 28;
 				arrow.y = 92;
 				add( arrow );
+				FP.play( SndDrop );
 			}
 			super.update();
 		}

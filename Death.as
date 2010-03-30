@@ -5,6 +5,7 @@
 	public class Death extends BaseRoom
 	{
 		[Embed(source = 'data/deceived.png')] private var ImgDeceived:Class;
+		[Embed(source = 'data/deceived.mp3')] private const SndDeceived:Class;
 
 		internal var _count:int = 0;
 
@@ -16,6 +17,7 @@
 		override public function init():void
 		{
 			super.init();
+			FP.play( SndDeceived );
 		}
 		
 		override public function update():void

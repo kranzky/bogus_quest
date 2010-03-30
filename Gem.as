@@ -11,7 +11,9 @@
 		[Embed(source = 'data/gem4.png')] private var ImgGem4:Class;
 		[Embed(source = 'data/gem5.png')] private var ImgGem5:Class;
 		[Embed(source = 'data/bomb.png')] private var ImgBomb:Class;
-		
+		[Embed(source = 'data/gem.mp3')] private const SndGem:Class;
+		[Embed(source = 'data/bomb.mp3')] private const SndBomb:Class;
+
 		public var bomb:Boolean = false;
 		public var fake:Boolean = false;
 		
@@ -61,6 +63,7 @@
 			{
 				if ( bomb )
 				{
+					FP.play( SndBomb );
 					FP.goto = new Death();
 					if ( FP.world is Room4 && Main.state < 6 )
 					{
@@ -70,6 +73,10 @@
 					{
 						Main.state = 8;
 					}
+				}
+				else
+				{
+					FP.play( SndGem );
 				}
 				FP.world.remove( this );
 				var room:BaseRoom = FP.world as BaseRoom;

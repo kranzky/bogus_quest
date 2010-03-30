@@ -2,6 +2,8 @@
 {
 	public class Bonus1 extends BaseRoom
 	{
+		[Embed(source = 'data/secret.mp3')] private const SndSecret:Class;
+
 		internal var _remaining:int = 0;
 
 		public function Bonus1() 
@@ -44,6 +46,7 @@
 				Main.door1.locked = false;
 				if ( Main.state < 4 )
 				{
+					FP.play( SndSecret );
 					Main.state = 4;
 				}
 			}

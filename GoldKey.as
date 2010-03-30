@@ -5,6 +5,7 @@
 	public class GoldKey extends Acrobat
 	{		
 		[Embed(source = 'data/key.png')] private var ImgKey:Class;
+		[Embed(source = 'data/key.mp3')] private const SndKey:Class;
 		
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
@@ -33,6 +34,7 @@
 
 			if ( collideWith( Main.player, x, y ) && ! Main.player.hasKey )
 			{
+				FP.play( SndKey );
 				FP.world.remove( this );
 				Main.player.hasKey = true;
 				if ( room is Room4 )

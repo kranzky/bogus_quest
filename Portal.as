@@ -6,6 +6,8 @@
 
 	public class Portal extends Acrobat
 	{
+		[Embed(source = 'data/room.mp3')] private const SndRoom:Class;
+
 		internal var _name:String = "Portal";
 		internal var _bitmapOpen:Class;
 		internal var _bitmapClosed:Class;
@@ -135,6 +137,7 @@
 				{
 					(FP.world as BaseRoom).leave();
 				}
+				FP.play( SndRoom );
 				FP.goto = new room2();
 			}
 			else if ( FP.world is room2 )
@@ -152,6 +155,7 @@
 				{
 					( FP.world as BaseRoom ).leave();
 				}
+				FP.play( SndRoom );
 				FP.goto = new room1();
 			}
 		}

@@ -6,6 +6,9 @@
 	{	
 		[Embed(source = 'data/ship.png')] private var ImgShip:Class;
 		[Embed(source = 'data/bubble8.png')] private var ImgBubble:Class;
+		[Embed(source = 'data/speech.mp3')] private const SndSpeech:Class;
+		[Embed(source = 'data/rocket.mp3')] private const SndRocket:Class;
+
 				
 		internal var _dy:Number = 0.0;
 		internal var _x:int = 0;
@@ -71,6 +74,8 @@
 				}
 				FP.world.withClass( Boy, kill );
 				Main.state = 15;
+				FP.play( SndSpeech );
+				FP.play( SndRocket );
 			}
 		}
 	}

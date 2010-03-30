@@ -4,6 +4,8 @@
 	
 	public class Bonus3 extends BaseRoom
 	{
+		[Embed(source = 'data/secret.mp3')] private const SndSecret:Class;
+
 		internal var _remaining:int = 0;
 
 		public function Bonus3() 
@@ -13,6 +15,7 @@
 
 		override public function activateGems():void
 		{
+			FP.play( SndSecret );
 			_remaining = countClass( Gem );
 			var activate:Function = function( gem:Gem ):void
 			{

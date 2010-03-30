@@ -6,6 +6,7 @@
 		[Embed(source = 'data/guard.png')] private var ImgGuard:Class;
 		[Embed(source = 'data/bubble10.png')] private var ImgBubble1:Class;
 		[Embed(source = 'data/bubble11.png')] private var ImgBubble2:Class;
+		[Embed(source = 'data/speech.mp3')] private const SndSpeech:Class;
 		
 		internal var _bitmap:Class;
 		internal var _counter:int = 0;
@@ -33,12 +34,20 @@
 			{
 				return;
 			}
-			if ( Main.player.x > 144 )
+			if ( Main.player.x > 144  )
 			{
+				if ( _bitmap != ImgBubble2 )
+				{
+					FP.play( SndSpeech );
+				}
 				_bitmap = ImgBubble2;
 			}
 			else
 			{
+				if ( _bitmap != ImgBubble1 )
+				{
+					FP.play( SndSpeech );
+				}
 				_bitmap = ImgBubble1;
 			}
 			if ( collideWith( Main.player.shadow, x, y ) && Main.player.hasGrog )

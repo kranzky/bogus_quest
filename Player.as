@@ -13,6 +13,7 @@
 		[Embed(source = 'data/player_up.png')] private var ImgPlayerUp:Class;
 		[Embed(source = 'data/player_down.png')] private var ImgPlayerDown:Class;
 		[Embed(source = 'data/player_tumble.png')] private var ImgPlayerTumble:Class;
+		[Embed(source = 'data/drop.mp3')] private const SndDrop:Class;
 
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
@@ -107,6 +108,7 @@
 			if ( falling && y > 114 )
 			{
 				_dy *= -1;
+				FP.play( SndDrop );
 			}
 			// collide or pass through screen bounds
 			if ( ! falling && ! room.wrapLeft && x + _dx < sprite.imageW * 0.5 )

@@ -12,11 +12,15 @@
 		[Embed(source = 'data/bubble5.png')] private var ImgBubble5:Class;
 		[Embed(source = 'data/bubble6.png')] private var ImgBubble6:Class;
 		[Embed(source = 'data/bubble7.png')] private var ImgBubble7:Class;
+		[Embed(source = 'data/speech.mp3')] private const SndSpeech:Class;
+		[Embed(source = 'data/chase.mp3')] private const SndChase:Class;
+		[Embed(source = 'data/warning.mp3')] private const SndWarning:Class;
 		
 		internal var _bitmap:Class;
 		internal var _counter:int = 0;
 		internal var _dx:Number = 0.0;
 		internal var _dy:Number = 0.0;
+		internal var _cn:int = 0;
 
 		public function Boy() 
 		{
@@ -41,6 +45,7 @@
 			if ( Main.state == 10 && _counter > 300 )
 			{
 				Main.state = 11;
+				FP.play( SndWarning );
 			}
 			if ( Main.state == 11 && _counter > 500 )
 			{
@@ -83,12 +88,20 @@
 			// slow down over time
 			_dx *= 0.1;
 			_dy *= 0.1;
+			
+			_cn -= 1;
+			if ( _cn <= 0 )
+			{
+				FP.play( SndChase );
+				_cn = int( ( Math.abs( _dx ) + Math.abs( _dy ) ) * 100.0 );
+			}
 		}
 		
 		public function reset():void
 		{
 			if ( Main.state % 2 == 0 )
 			{
+				var old:Class = _bitmap;
 				delay = 6;
 				switch ( Main.state / 2 )
 				{
@@ -99,6 +112,10 @@
 					case 4: _bitmap = ImgBubble5; break;
 					case 5: _bitmap = ImgBubble6; break;
 					case 6: _bitmap = ImgBubble7; break;
+				}
+				if ( _bitmap != old )
+				{
+					FP.play( SndSpeech );
 				}
 			}
 			else
