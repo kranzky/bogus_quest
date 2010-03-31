@@ -16,7 +16,7 @@
 			trace( "Leave " + Main.state );
 			if ( Main.state % 2 == 0 )
 			{
-				Main.state += 1;
+				//Main.state += 1;
 			}
 		}
 		
