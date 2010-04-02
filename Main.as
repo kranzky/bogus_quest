@@ -31,7 +31,7 @@
 		public function Main()
 		{
 			// TODO: change to Rocket and true for ship
-			super( 320, 240, 60, 2, Rocket, true, true, 0xFFFFFFFF, 0xFFAA5555 );
+			super( 320, 240, 60, 2, Room1, false, false, 0xFFFFFFFF, 0xFFAA5555 );
 
 			var portal:Portal;
 			
@@ -40,6 +40,7 @@
 			portal.room1 = Room1;
 			portal.wall = 1;
 			portal.room2 = Death;
+			portal.message = "Signs point to death?";
 			
 			portal = _addPortal( Door, 1 );
 			portal.room1 = Room1;
@@ -51,6 +52,7 @@
 			portal.room1 = Room2;
 			portal.wall = 3;
 			portal.room2 = Death;
+			portal.message = "You fell for that one.";
 			
 			portal = _addPortal( Door, 1 );
 			portal.room1 = Room2;
@@ -62,6 +64,7 @@
 			portal.room1 = Room3;
 			portal.wall = 3;
 			portal.room2 = Death;
+			portal.message = "The boy is a liar!";
 			
 			portal = _addPortal( Door );
 			portal.room1 = Room3;

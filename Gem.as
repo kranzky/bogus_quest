@@ -64,7 +64,14 @@
 				if ( bomb )
 				{
 					FP.play( SndBomb );
-					FP.goto = new Death();
+					if ( fake )
+					{
+						FP.goto = new Death( "Gems can be bombs too." );
+					}
+					else
+					{
+						FP.goto = new Death( "That was a real bomb." );
+					}
 					if ( FP.world is Room4 && Main.state < 6 )
 					{
 						Main.state = 6;

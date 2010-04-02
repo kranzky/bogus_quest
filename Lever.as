@@ -25,7 +25,7 @@
 			}
 			if ( collideWith( Main.player, x, y ) )
 			{
-				FP.goto = new Death();
+				FP.goto = new Death( "You released toxic gas." );
 			}
 		}
 		

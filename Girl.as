@@ -62,7 +62,7 @@
 					Main.player.usedKey1 = false;
 					Main.player.hasKey = false;
 				}
-				FP.goto = new Death();
+				FP.goto = new Death( "You released a monster." );
 			}
 		}
 	}

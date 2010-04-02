@@ -75,7 +75,7 @@
 			depth = -1;
 			if ( collideWith( Main.player.shadow, x, y ) )
 			{
-				FP.goto = new Death();
+				FP.goto = new Death( "Belittled by Louis Castle!" );
 				return;
 			}
 			_dx += ( Main.player.x - x ) * 0.015;

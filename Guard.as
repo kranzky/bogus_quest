@@ -53,7 +53,7 @@
 			if ( collideWith( Main.player.shadow, x, y ) && Main.player.hasGrog )
 			{
 				Main.player.hasGrog = false;
-				FP.goto = new Death();
+				FP.goto = new Death( "He is a violent drunk." );
 			}
 		}
 	}

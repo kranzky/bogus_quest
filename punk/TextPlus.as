@@ -244,11 +244,18 @@
 			return (_string.charAt(_letters - 1));
 		}
 		
+		public function setColour( red:Number, green:Number, blue:Number ):void
+		{
+			_color.redMultiplier = red;
+			_color.blueMultiplier = blue;
+			_color.greenMultiplier = green;
+		}
+		
 		private const _DEG:Number = -Math.PI / 180;
 		
 		private var _zero:Point = FP.zero;
 		private var _matrix:Matrix = FP.matrix;
-		private var _color:ColorTransform = FP.color;
+		private var _color:ColorTransform = new ColorTransform();
 		
 		private var _buffer:BitmapData;
 		private var _update:Boolean = true;

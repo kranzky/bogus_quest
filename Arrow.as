@@ -41,7 +41,7 @@
 				if ( collideWith( Main.player, x, y ) )
 				{
 					FP.world.remove( this );
-					FP.goto = new Death();
+					FP.goto = new Death( "The arrow hit your face." );
 				}
 			}
 

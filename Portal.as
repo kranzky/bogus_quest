@@ -17,6 +17,7 @@
 		public var room2:Class;
 		public var locked:Boolean;
 		public var fake:Boolean;
+		public var message:String;
 		
 		public function Portal( name:String, bitmap_open:Class, bitmap_closed:Class = null ) 
 		{
@@ -35,6 +36,8 @@
 			fake = false;
 			
 			depth = 3;
+			
+			message = "";
 		}
 		
 		public function addToWorld():void
@@ -138,7 +141,14 @@
 					(FP.world as BaseRoom).leave();
 				}
 				FP.play( SndRoom );
-				FP.goto = new room2();
+				if ( message != "" && room2 == Death )
+				{
+					FP.goto = new room2( message );
+				}
+				else
+				{
+					FP.goto = new room2();
+				}
 			}
 			else if ( FP.world is room2 )
 			{
@@ -156,7 +166,14 @@
 					( FP.world as BaseRoom ).leave();
 				}
 				FP.play( SndRoom );
-				FP.goto = new room1();
+				if ( message != "" && room1 == Death )
+				{
+					FP.goto = new room1( message );
+				}
+				else
+				{
+					FP.goto = new room1();
+				}
 			}
 		}
 	}
