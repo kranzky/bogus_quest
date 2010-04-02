@@ -24,7 +24,7 @@
 			
 			if ( collideWith( Main.player, x, y ) && ! Main.player.hasGrog && Main.player.y > y )
 			{
-				FP.play( SndKey );
+				FP.play( SndKey, 0.7 );
 				FP.world.remove( this );
 				Main.player.hasGrog = true;
 			}

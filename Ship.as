@@ -75,7 +75,7 @@
 				FP.world.withClass( Boy, kill );
 				Main.state = 15;
 				FP.play( SndSpeech );
-				FP.play( SndRocket );
+				FP.play( SndRocket, 0.9 );
 			}
 		}
 	}

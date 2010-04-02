@@ -46,7 +46,7 @@
 				Main.door1.locked = false;
 				if ( Main.state < 4 )
 				{
-					FP.play( SndSecret );
+					FP.play( SndSecret, 0.5 );
 					Main.state = 4;
 				}
 			}

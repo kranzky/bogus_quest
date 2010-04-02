@@ -30,7 +30,7 @@
 				sprite = FP.getSprite( ImgKey, 32, 32, false, false, 16, 16 );
 				if ( collideWith( Main.player, x, y ) )
 				{
-					FP.play( SndKey );
+					FP.play( SndKey, 0.7 );
 					FP.world.remove( this );
 					Main.player.hasRedKey = true;
 				}

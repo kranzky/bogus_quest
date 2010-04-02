@@ -140,7 +140,7 @@
 				{
 					(FP.world as BaseRoom).leave();
 				}
-				FP.play( SndRoom );
+				FP.play( SndRoom, 0.5 );
 				if ( message != "" && room2 == Death )
 				{
 					FP.goto = new room2( message );
@@ -165,7 +165,7 @@
 				{
 					( FP.world as BaseRoom ).leave();
 				}
-				FP.play( SndRoom );
+				FP.play( SndRoom, 0.5 );
 				if ( message != "" && room1 == Death )
 				{
 					FP.goto = new room1( message );

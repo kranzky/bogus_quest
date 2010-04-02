@@ -23,7 +23,7 @@
 		override public function init():void
 		{
 			super.init();
-			FP.play( SndDeceived );
+			FP.play( SndDeceived, 0.8 );
 			_caption = new TextPlus();
 			_caption.depth = -1;
 			_caption.setString( "Deceived!" );

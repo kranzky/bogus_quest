@@ -63,7 +63,7 @@
 			{
 				if ( bomb )
 				{
-					FP.play( SndBomb );
+					FP.play( SndBomb, 0.8 );
 					if ( fake )
 					{
 						FP.goto = new Death( "Gems can be bombs too." );
@@ -83,7 +83,7 @@
 				}
 				else
 				{
-					FP.play( SndGem );
+					FP.play( SndGem, 0.3 );
 				}
 				FP.world.remove( this );
 				var room:BaseRoom = FP.world as BaseRoom;

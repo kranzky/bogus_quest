@@ -108,7 +108,7 @@
 			if ( falling && y > 114 )
 			{
 				_dy *= -1;
-				FP.play( SndDrop );
+				FP.play( SndDrop, 0.5 );
 			}
 			// collide or pass through screen bounds
 			if ( ! falling && ! room.wrapLeft && x + _dx < sprite.imageW * 0.5 )

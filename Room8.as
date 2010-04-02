@@ -46,7 +46,7 @@
 				arrow.x = 28;
 				arrow.y = 92;
 				add( arrow );
-				FP.play( SndDrop );
+				FP.play( SndDrop, 0.5 );
 			}
 			super.update();
 		}

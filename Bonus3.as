@@ -15,7 +15,7 @@
 
 		override public function activateGems():void
 		{
-			FP.play( SndSecret );
+			FP.play( SndSecret, 0.5 );
 			_remaining = countClass( Gem );
 			var activate:Function = function( gem:Gem ):void
 			{

@@ -45,7 +45,7 @@
 			if ( Main.state == 10 && _counter > 300 )
 			{
 				Main.state = 11;
-				FP.play( SndWarning );
+				FP.play( SndWarning, 0.3 );
 			}
 			if ( Main.state == 11 && _counter > 500 )
 			{
@@ -92,7 +92,7 @@
 			_cn -= 1;
 			if ( _cn <= 0 )
 			{
-				FP.play( SndChase );
+				FP.play( SndChase, 0.7 );
 				_cn = int( ( Math.abs( _dx ) + Math.abs( _dy ) ) * 100.0 );
 			}
 		}
