@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+# BogusQuest v001
+
+NETWORK:
+*
+
+CACHE:
+index.html
+offline.html
+404.html
+BogusQuest.swf
+
+FALLBACK:
+/ offline.html
