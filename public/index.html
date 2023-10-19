@@ -7,11 +7,8 @@
     <title>Bogus Quest</title>
   </head>
   
-  <body style="background-color: black;">
-    <div id="ui" style="display: flex; justify-content: center; margin-bottom: 10px;">
-      <button onclick="openFullscreen();">Play in Fullscreen Mode</button>
-    </div>
-    <div id="container" style="margin: 0 auto; width: 640px; height: 480px;"></div>
+  <body style="background-color: black; border: 0; padding: 0; margin: 0;">
+    <div id="container" style="border: 0; padding: 0; margin: 0 auto; width: 640px; height: 480px;"></div>
     <script>
       window.RufflePlayer = window.RufflePlayer || {};
       window.RufflePlayer.config = {
@@ -29,16 +26,6 @@
         player.style.width = "100%";
         player.style.height = "100%";
       });
-      function openFullscreen() {
-        var elem = document.getElementById("container");
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-          elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-          elem.msRequestFullscreen();
-        }
-      }
     </script>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   </body>
